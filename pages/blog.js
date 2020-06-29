@@ -6,6 +6,10 @@ import Layout from "../components/Layout";
 
 import json from "../public/blogs.json";
 
+const StyledContainer = styled(Container)`
+  margin: 2rem 0;
+`;
+
 const StyledHeading = styled(Heading)`
   text-align: center;
 `;
@@ -50,9 +54,9 @@ const BlogFooter = styled.div`
 function Blog() {
   return (
     <Layout>
-      <Container>
+      <StyledContainer>
         <StyledHeading>MOP Blog</StyledHeading>
-      </Container>
+      </StyledContainer>
       <Grid>
         {json.map((item) => {
           return (
