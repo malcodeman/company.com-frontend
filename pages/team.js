@@ -1,11 +1,11 @@
 import Layout from "../components/Layout";
 
-function Home() {
+function Team() {
   return (
     <Layout>
-      <h1>Home</h1>
+      <h1>Team</h1>
     </Layout>
   );
 }
 
-export default Home;
+export default Team;

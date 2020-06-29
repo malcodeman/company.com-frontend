@@ -1,15 +1,16 @@
 import { getTestimonials } from "../lib/api";
+import Layout from "../components/Layout";
 
 function Testimonials(props) {
   const { testimonials } = props;
 
   return (
-    <div>
+    <Layout>
       <h1>Testimonials</h1>
       {testimonials.map((item) => {
-        return <div id={item.id}>{item.text} </div>;
+        return <div key={item.id}>{item.text}</div>;
       })}
-    </div>
+    </Layout>
   );
 }
 

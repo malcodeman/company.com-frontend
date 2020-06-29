@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import Heading from "../components/Heading";
 import Container from "../components/Container";
+import Layout from "../components/Layout";
 
 import json from "../public/blogs.json";
 
@@ -48,28 +49,26 @@ const BlogFooter = styled.div`
 
 function Blog() {
   return (
-    <>
+    <Layout>
       <Container>
         <StyledHeading>MOP Blog</StyledHeading>
       </Container>
-      <Container>
-        <Grid>
-          {json.map((item) => {
-            return (
-              <a href={item.link} target="_blank" rel="noopener" key={item.id}>
-                <BlogItem>
-                  <Image src={item.image} alt={item.imageAlternateText} />
-                  <BlogFooter>
-                    <BlogTitle>{item.title}</BlogTitle>
-                    <BlogText>{item.text}</BlogText>
-                  </BlogFooter>
-                </BlogItem>
-              </a>
-            );
-          })}
-        </Grid>
-      </Container>
-    </>
+      <Grid>
+        {json.map((item) => {
+          return (
+            <a href={item.link} target="_blank" rel="noopener" key={item.id}>
+              <BlogItem>
+                <Image src={item.image} alt={item.imageAlternateText} />
+                <BlogFooter>
+                  <BlogTitle>{item.title}</BlogTitle>
+                  <BlogText>{item.text}</BlogText>
+                </BlogFooter>
+              </BlogItem>
+            </a>
+          );
+        })}
+      </Grid>
+    </Layout>
   );
 }
 

@@ -1,11 +1,11 @@
 import Layout from "../components/Layout";
 
-function Home() {
+function Careers() {
   return (
     <Layout>
-      <h1>Home</h1>
+      <h1>Careers</h1>
     </Layout>
   );
 }
 
-export default Home;
+export default Careers;
