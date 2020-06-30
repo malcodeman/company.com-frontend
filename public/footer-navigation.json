@@ -1,0 +1,42 @@
+[
+  {
+    "id": "0",
+    "label": "MOP",
+    "link": "/"
+  },
+  {
+    "id": "1",
+    "label": "Team",
+    "link": "/team"
+  },
+  {
+    "id": "2",
+    "label": "Products",
+    "link": "/products"
+  },
+  {
+    "id": "3",
+    "label": "Careers",
+    "link": "/careers"
+  },
+  {
+    "id": "4",
+    "label": "Careers",
+    "link": "/careers"
+  },
+  {
+    "id": "5",
+    "label": "Blog",
+    "link": "/blog"
+  },
+  {
+    "id": "6",
+    "label": "Contact",
+    "link": "/contact"
+  },
+  {
+    "id": "7",
+    "label": "Privacy Policy",
+    "link": "/policy"
+  }
+]

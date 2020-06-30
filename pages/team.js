@@ -17,7 +17,7 @@ import { getEmployees } from "../lib/api";
 import { NEXT_PUBLIC_STRAPI_API_URL, EMPLOYE_LINKS } from "../lib/constants";
 
 const StyledContainer = styled(Container)`
-  margin: 2rem 0;
+  margin-bottom: 2rem;
 `;
 
 const StyledHeading = styled(Heading)`

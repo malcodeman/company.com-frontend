@@ -8,7 +8,7 @@ import { getTestimonials } from "../lib/api";
 import { NEXT_PUBLIC_STRAPI_API_URL } from "../lib/constants";
 
 const StyledContainer = styled(Container)`
-  margin: 2rem 0;
+  margin-bottom: 2rem;
 `;
 
 const StyledHeading = styled(Heading)`
@@ -85,7 +85,7 @@ function Testimonials(props) {
   return (
     <Layout>
       <StyledContainer>
-        <StyledHeading>Testimonials</StyledHeading>
+        <StyledHeading>What our partners say</StyledHeading>
       </StyledContainer>
       <Grid>
         {testimonials.map((item) => {

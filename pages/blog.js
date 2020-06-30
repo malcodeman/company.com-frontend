@@ -7,7 +7,7 @@ import Layout from "../components/Layout";
 import json from "../public/blogs.json";
 
 const StyledContainer = styled(Container)`
-  margin: 2rem 0;
+  margin-bottom: 2rem;
 `;
 
 const StyledHeading = styled(Heading)`
