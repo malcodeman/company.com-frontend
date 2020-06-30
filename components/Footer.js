@@ -96,7 +96,7 @@ const SOCIAL_LINKS = [
   },
 ];
 
-const EMAIL = "mailto:hello@mop.ba";
+const EMAIL = "hello@mop.ba";
 
 function Footer() {
   const year = new Date().getFullYear();
@@ -127,7 +127,7 @@ function Footer() {
             );
           })}
         </SocialLinks>
-        <EmailLink href={EMAIL}>hello@mop.ba</EmailLink>
+        <EmailLink href={`mailto:${EMAIL}`}>hello@mop.ba</EmailLink>
         <CopyrightText>© {year} Ministry of Programming</CopyrightText>
       </StyledContainer>
     </StyledFooter>

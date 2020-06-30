@@ -1,9 +1,81 @@
+import styled from "styled-components";
+
+import Heading from "../components/Heading";
+import Container from "../components/Container";
 import Layout from "../components/Layout";
+import ContactForm from "./contact-form";
+
+import { BREAKPOINTS } from "../lib/constants";
+
+const StyledContainer = styled(Container)`
+  margin-bottom: 2rem;
+`;
+
+const StyledHeading = styled(Heading)`
+  text-align: center;
+  margin-bottom: 1rem;
+`;
+
+const HighlightedText = styled.span`
+  color: #ee2633;
+`;
+
+const FormWrapper = styled.div`
+  max-width: ${BREAKPOINTS.LARGE_DEVICES};
+  margin: 0 auto;
+`;
+
+const Paragraph = styled.p`
+  color: #111;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  line-height: 1.4;
+`;
+
+const EmailLink = styled.a`
+  color: #ee2633;
+`;
+
+const EMAIL = "info@ministryofprogramming.com";
+const URL =
+  "https://fwjitkr0o4.execute-api.eu-west-1.amazonaws.com/dev/contact";
 
 function Contact() {
+  async function handleSubmit(formik) {
+    const response = await fetch(URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formik.values),
+    });
+    const json = await response.json();
+
+    if (json === "MESSAGE_SENT") {
+      formik.resetForm();
+    }
+  }
+
   return (
     <Layout>
-      <h1>Contact</h1>
+      <StyledContainer>
+        <StyledHeading>
+          <HighlightedText>Hello.</HighlightedText> What can we <br /> help you
+          with?
+        </StyledHeading>
+      </StyledContainer>
+      <FormWrapper>
+        <Paragraph>
+          If you have a question or want to work with us you can send an email
+          to:
+          <br />
+          <EmailLink href={`mailto:${EMAIL}`}>
+            info@ministryofprogramming.com
+          </EmailLink>
+          , or fill the form below
+        </Paragraph>
+        <ContactForm onSubmit={handleSubmit} />
+      </FormWrapper>
     </Layout>
   );
 }

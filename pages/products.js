@@ -71,6 +71,7 @@ const Footer = styled.div`
 const Link = styled.a`
   display: flex;
   justify-content: center;
+  align-items: center;
   border: 1px solid #d6d6d6;
   padding: 0.5rem 1rem;
   color: #000;
