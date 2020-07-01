@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Heading from "../components/Heading";
 import Container from "../components/Container";
 import Layout from "../components/Layout";
+import WorkWithUs from "../components/WorkWithUs";
 
 import { getProducts } from "../lib/api";
 import { NEXT_PUBLIC_STRAPI_API_URL } from "../lib/constants";
@@ -29,6 +30,7 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 6rem;
+  margin-bottom: 2rem;
   @media (min-width: 768px) {
     grid-template-columns: 1fr 1fr;
   }
@@ -128,6 +130,7 @@ function Products(props) {
             );
           })}
         </Grid>
+        <WorkWithUs question="Ready to get started?" />
       </Container>
     </Layout>
   );
