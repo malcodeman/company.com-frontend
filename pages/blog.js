@@ -57,21 +57,23 @@ function Blog() {
       <StyledContainer>
         <StyledHeading>MOP Blog</StyledHeading>
       </StyledContainer>
-      <Grid>
-        {json.map((item) => {
-          return (
-            <a href={item.link} target="_blank" rel="noopener" key={item.id}>
-              <BlogItem>
-                <Image src={item.image} alt={item.imageAlternateText} />
-                <BlogFooter>
-                  <BlogTitle>{item.title}</BlogTitle>
-                  <BlogText>{item.text}</BlogText>
-                </BlogFooter>
-              </BlogItem>
-            </a>
-          );
-        })}
-      </Grid>
+      <Container>
+        <Grid>
+          {json.map((item) => {
+            return (
+              <a href={item.link} target="_blank" rel="noopener" key={item.id}>
+                <BlogItem>
+                  <Image src={item.image} alt={item.imageAlternateText} />
+                  <BlogFooter>
+                    <BlogTitle>{item.title}</BlogTitle>
+                    <BlogText>{item.text}</BlogText>
+                  </BlogFooter>
+                </BlogItem>
+              </a>
+            );
+          })}
+        </Grid>
+      </Container>
     </Layout>
   );
 }

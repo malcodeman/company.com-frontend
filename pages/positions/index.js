@@ -173,34 +173,36 @@ function Positions(props) {
           <EmailLink href={`mailto:${EMAIL}`}>careers@mop.ba</EmailLink>
         </Subheading>
       </StyledContainer>
-      <HighlightedText>We are searching for:</HighlightedText>
-      <Grid>
-        {positions.map((item) => {
-          return (
-            <Link key={item.id} href={`/positions/${item.id}`}>
-              <a>
-                <GridItem>
-                  <Title>{item.title}</Title>
-                  <Location>
-                    {item.location}, {parseJobType(item.type)}
-                  </Location>
-                </GridItem>
-              </a>
-            </Link>
-          );
-        })}
-      </Grid>
-      <HighlightedText>This is what we offer:</HighlightedText>
-      <PerksGrid>
-        {PERKS.map((item) => {
-          return (
-            <Perk key={item.id}>
-              {item.icon}
-              <PerkText>{item.text}</PerkText>
-            </Perk>
-          );
-        })}
-      </PerksGrid>
+      <Container>
+        <HighlightedText>We are searching for:</HighlightedText>
+        <Grid>
+          {positions.map((item) => {
+            return (
+              <Link key={item.id} href={`/positions/${item.id}`}>
+                <a>
+                  <GridItem>
+                    <Title>{item.title}</Title>
+                    <Location>
+                      {item.location}, {parseJobType(item.type)}
+                    </Location>
+                  </GridItem>
+                </a>
+              </Link>
+            );
+          })}
+        </Grid>
+        <HighlightedText>This is what we offer:</HighlightedText>
+        <PerksGrid>
+          {PERKS.map((item) => {
+            return (
+              <Perk key={item.id}>
+                {item.icon}
+                <PerkText>{item.text}</PerkText>
+              </Perk>
+            );
+          })}
+        </PerksGrid>
+      </Container>
     </Layout>
   );
 }

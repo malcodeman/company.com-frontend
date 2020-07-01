@@ -87,37 +87,39 @@ function Testimonials(props) {
       <StyledContainer>
         <StyledHeading>What our partners say</StyledHeading>
       </StyledContainer>
-      <Grid>
-        {testimonials.map((item) => {
-          return (
-            <GridItem key={item.id}>
-              <Header>
-                <a href={item.url} target="_blank" rel="noopener">
-                  <Image
-                    src={`${NEXT_PUBLIC_STRAPI_API_URL}${item.image.url}`}
+      <Container>
+        <Grid>
+          {testimonials.map((item) => {
+            return (
+              <GridItem key={item.id}>
+                <Header>
+                  <a href={item.url} target="_blank" rel="noopener">
+                    <Image
+                      src={`${NEXT_PUBLIC_STRAPI_API_URL}${item.image.url}`}
+                    />
+                  </a>
+                </Header>
+                <Text>
+                  <Quote>“</Quote>
+                  {item.text}
+                  <Quote>“</Quote>
+                </Text>
+                <Footer>
+                  <AuthorImage
+                    src={`${NEXT_PUBLIC_STRAPI_API_URL}${item.author_image.url}`}
                   />
-                </a>
-              </Header>
-              <Text>
-                <Quote>“</Quote>
-                {item.text}
-                <Quote>“</Quote>
-              </Text>
-              <Footer>
-                <AuthorImage
-                  src={`${NEXT_PUBLIC_STRAPI_API_URL}${item.author_image.url}`}
-                />
-                <div>
-                  <AuthorName>{item.author_name}</AuthorName>
-                  <AuthorDescription>
-                    {item.author_description}
-                  </AuthorDescription>
-                </div>
-              </Footer>
-            </GridItem>
-          );
-        })}
-      </Grid>
+                  <div>
+                    <AuthorName>{item.author_name}</AuthorName>
+                    <AuthorDescription>
+                      {item.author_description}
+                    </AuthorDescription>
+                  </div>
+                </Footer>
+              </GridItem>
+            );
+          })}
+        </Grid>
+      </Container>
     </Layout>
   );
 }

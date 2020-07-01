@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 import Header from "./Header";
-import Container from "./Container";
 import Footer from "./Footer";
 
 const Grid = styled.div`
@@ -17,9 +16,7 @@ function Layout(props) {
   return (
     <Grid>
       <Header />
-      <main>
-        <Container>{children}</Container>
-      </main>
+      <main>{children}</main>
       <Footer />
     </Grid>
   );
