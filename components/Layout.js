@@ -1,7 +1,9 @@
+import React from "react";
 import styled from "styled-components";
 
 import Header from "./Header";
 import Footer from "./Footer";
+import MobileNavigation from "./MobileNavigation";
 
 const Grid = styled.div`
   display: grid;
@@ -11,14 +13,18 @@ const Grid = styled.div`
 `;
 
 function Layout(props) {
+  const [mobileNav, setMobileNav] = React.useState(false);
   const { children } = props;
 
   return (
-    <Grid>
-      <Header />
-      <main>{children}</main>
-      <Footer />
-    </Grid>
+    <>
+      <Grid>
+        <Header mobileNav={mobileNav} setMobileNav={setMobileNav} />
+        <main>{children}</main>
+        <Footer />
+      </Grid>
+      {mobileNav && <MobileNavigation setMobileNav={setMobileNav} />}
+    </>
   );
 }
 

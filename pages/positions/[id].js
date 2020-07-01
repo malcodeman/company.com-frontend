@@ -21,8 +21,9 @@ const StyledHeading = styled(Heading)`
   text-align: center;
 `;
 
-const Wrapper = styled.div`
+const ContentContainer = styled.div`
   margin: 0 auto;
+  padding: 0 1rem;
   max-width: ${BREAKPOINTS.LARGE_DEVICES};
 `;
 
@@ -84,7 +85,7 @@ function Position(props) {
       <StyledContainer>
         <StyledHeading>{position.title}</StyledHeading>
       </StyledContainer>
-      <Wrapper>
+      <ContentContainer>
         {position.description && (
           <Description>{parseDescription(position.description)}</Description>
         )}
@@ -117,7 +118,7 @@ function Position(props) {
           </ListWrapper>
         )}
         <PositionForm position={position.title} onSubmit={handleSubmit} />
-      </Wrapper>
+      </ContentContainer>
     </Layout>
   );
 }

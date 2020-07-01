@@ -9,7 +9,7 @@ import {
 
 import Container from "./Container";
 
-import navigation from "../public/footer-navigation.json";
+import { FOOTER_NAVIGATION } from "../lib/constants";
 
 const StyledFooter = styled.footer`
   background-color: #111111;
@@ -105,7 +105,7 @@ function Footer() {
     <StyledFooter>
       <StyledContainer>
         <Navigation>
-          {navigation.map((item) => {
+          {FOOTER_NAVIGATION.map((item) => {
             return (
               <Link href={item.link} key={item.id}>
                 <StyledLink>{item.label}</StyledLink>

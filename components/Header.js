@@ -1,9 +1,10 @@
 import Link from "next/link";
 import styled from "styled-components";
+import { Menu as MenuIcon } from "react-feather";
 
 import Container from "./Container";
 
-import navigation from "../public/navigation.json";
+import { BREAKPOINTS, HEADER_NAVIGATION } from "../lib/constants";
 
 const StyledHeader = styled.header``;
 
@@ -13,7 +14,12 @@ const StyledContainer = styled(Container)`
   align-items: center;
 `;
 
-const Navigation = styled.nav``;
+const Navigation = styled.nav`
+  display: none;
+  @media (min-width: ${BREAKPOINTS.LARGE_DEVICES}) {
+    display: initial;
+  }
+`;
 
 const StyledLink = styled.a`
   padding: 1rem;
@@ -22,7 +28,16 @@ const StyledLink = styled.a`
   cursor: pointer;
 `;
 
-function Header() {
+const StyledMenuIcon = styled(MenuIcon)`
+  cursor: pointer;
+  @media (min-width: ${BREAKPOINTS.LARGE_DEVICES}) {
+    display: none;
+  }
+`;
+
+function Header(props) {
+  const { setMobileNav, mobileNav } = props;
+
   return (
     <StyledHeader>
       <StyledContainer>
@@ -31,8 +46,9 @@ function Header() {
             ministry of <br /> programming
           </StyledLink>
         </Link>
+        <StyledMenuIcon size={20} onClick={() => setMobileNav(!mobileNav)} />
         <Navigation>
-          {navigation.map((item) => {
+          {HEADER_NAVIGATION.map((item) => {
             return (
               <Link href={item.link} key={item.id}>
                 <StyledLink>{item.label}</StyledLink>

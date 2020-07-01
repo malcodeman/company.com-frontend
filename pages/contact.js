@@ -23,6 +23,7 @@ const HighlightedText = styled.span`
 const FormWrapper = styled.div`
   max-width: ${BREAKPOINTS.LARGE_DEVICES};
   margin: 0 auto;
+  padding: 0 1rem;
 `;
 
 const Paragraph = styled.p`

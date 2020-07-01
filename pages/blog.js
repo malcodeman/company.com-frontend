@@ -5,6 +5,7 @@ import Container from "../components/Container";
 import Layout from "../components/Layout";
 
 import json from "../public/blogs.json";
+import { BREAKPOINTS } from "../lib/constants";
 
 const StyledContainer = styled(Container)`
   margin-bottom: 2rem;
@@ -16,8 +17,11 @@ const StyledHeading = styled(Heading)`
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-gap: 4rem;
+  @media (min-width: ${BREAKPOINTS.MEDIUM_DEVICES}) {
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
 const BlogItem = styled.div`
