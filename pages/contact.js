@@ -5,7 +5,7 @@ import Container from "../components/Container";
 import Layout from "../components/Layout";
 import ContactForm from "./contact-form";
 
-import { BREAKPOINTS } from "../lib/constants";
+import { BREAKPOINTS, LAMBDA_API_URL } from "../lib/constants";
 
 const StyledContainer = styled(Container)`
   margin-bottom: 2rem;
@@ -37,12 +37,10 @@ const EmailLink = styled.a`
 `;
 
 const EMAIL = "info@ministryofprogramming.com";
-const URL =
-  "https://fwjitkr0o4.execute-api.eu-west-1.amazonaws.com/dev/contact";
 
 function Contact() {
   async function handleSubmit(formik) {
-    const response = await fetch(URL, {
+    const response = await fetch(`${LAMBDA_API_URL}/dev/contact`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

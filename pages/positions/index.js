@@ -1,21 +1,22 @@
+import Link from "next/link";
 import styled from "styled-components";
 import { nanoid } from "nanoid";
 
-import Heading from "../components/Heading";
-import Container from "../components/Container";
-import Layout from "../components/Layout";
-import DumbbellIcon from "../icons/Dumbbell";
-import IceCreamIcon from "../icons/IceCream";
-import ChefIcon from "../icons/Chef";
-import HomeIcon from "../icons/Home";
-import AcademicCapIcon from "../icons/AcademicCap";
-import PopcornIcon from "../icons/Popcorn";
-import PlaystationControllerIcon from "../icons/PlaystationController";
-import AppleIcon from "../icons/Apple";
+import Heading from "../../components/Heading";
+import Container from "../../components/Container";
+import Layout from "../../components/Layout";
+import DumbbellIcon from "../../icons/Dumbbell";
+import IceCreamIcon from "../../icons/IceCream";
+import ChefIcon from "../../icons/Chef";
+import HomeIcon from "../../icons/Home";
+import AcademicCapIcon from "../../icons/AcademicCap";
+import PopcornIcon from "../../icons/Popcorn";
+import PlaystationControllerIcon from "../../icons/PlaystationController";
+import AppleIcon from "../../icons/Apple";
 
-import { getPositions } from "../lib/api";
+import { getPositions } from "../../lib/api";
 
-import { BREAKPOINTS } from "../lib/constants";
+import { BREAKPOINTS } from "../../lib/constants";
 
 const StyledContainer = styled(Container)`
   margin-bottom: 2rem;
@@ -51,16 +52,19 @@ const Grid = styled.div`
   }
 `;
 
-const GridItem = styled.div`
-  padding: 1rem;
-  border-bottom: 2px solid #eaeaea;
-  cursor: pointer;
-`;
-
 const Title = styled.span`
   display: block;
   color: ${(props) => props.theme.colors.contentPrimary};
   ${(props) => props.theme.typography.font550};
+`;
+
+const GridItem = styled.div`
+  padding: 1rem;
+  border-bottom: 2px solid #eaeaea;
+  cursor: pointer;
+  &:hover ${Title} {
+    color: ${(props) => props.theme.colors.accent};
+  }
 `;
 
 const Location = styled.span`
@@ -131,8 +135,32 @@ const PERKS = [
   },
 ];
 
+const JOB_TYPES = {
+  full_time: "full_time",
+  part_time: "part_time",
+  internship: "internship",
+  volunteer: "volunteer",
+  contract: "contract",
+};
+
 function Positions(props) {
   const { positions } = props;
+
+  function parseJobType(type) {
+    switch (type) {
+      default:
+      case JOB_TYPES.full_time:
+        return "Full-time";
+      case JOB_TYPES.part_time:
+        return "Part-time";
+      case JOB_TYPES.internship:
+        return "Internship";
+      case JOB_TYPES.volunteer:
+        return "Volunteer";
+      case JOB_TYPES.contract:
+        return "Contract";
+    }
+  }
 
   return (
     <Layout>
@@ -149,10 +177,16 @@ function Positions(props) {
       <Grid>
         {positions.map((item) => {
           return (
-            <GridItem key={item.id}>
-              <Title>{item.title}</Title>
-              <Location>{item.location}</Location>
-            </GridItem>
+            <Link key={item.id} href={`/positions/${item.id}`}>
+              <a>
+                <GridItem>
+                  <Title>{item.title}</Title>
+                  <Location>
+                    {item.location}, {parseJobType(item.type)}
+                  </Location>
+                </GridItem>
+              </a>
+            </Link>
           );
         })}
       </Grid>

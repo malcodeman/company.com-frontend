@@ -5,6 +5,7 @@ const light = {
   typography,
   animations,
   colors: {
+    accent: "#ED202E",
     foreground: "#000000",
     foregroundAlt: "#545454",
     negative: "#D44333",
