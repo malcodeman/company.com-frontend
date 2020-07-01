@@ -164,7 +164,12 @@ function Team(props) {
                   <Links>
                     {item.links.map((link) => {
                       return (
-                        <Link href={link.url} target="_blank" rel="noopener">
+                        <Link
+                          key={link.url}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener"
+                        >
                           {handleLinkIcon(link.url)}
                         </Link>
                       );

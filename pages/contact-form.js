@@ -95,7 +95,6 @@ function ContactForm(props) {
           <Input
             type="text"
             name="company"
-            placeholder="Company"
             value={formik.values.company}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}

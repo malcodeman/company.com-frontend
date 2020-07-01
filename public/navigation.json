@@ -36,6 +36,11 @@
   },
   {
     "id": "7",
+    "label": "Open Positions",
+    "link": "/positions"
+  },
+  {
+    "id": "8",
     "label": "Contact",
     "link": "/contact"
   }

@@ -9,6 +9,8 @@ const light = {
     foregroundAlt: "#545454",
     negative: "#D44333",
     positive: "#3AA76D",
+    contentPrimary: "#000000",
+    contentSecondary: "#545454",
   },
 };
 
