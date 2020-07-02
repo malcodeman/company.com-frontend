@@ -27,7 +27,7 @@ const Subdisplay = styled(ParagraphLarge)`
 const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 6rem;
+  grid-gap: 2rem;
   margin-bottom: 2rem;
   @media (min-width: 768px) {
     grid-template-columns: 1fr 1fr;
@@ -37,6 +37,8 @@ const Grid = styled.div`
 const GridItem = styled.div`
   display: flex;
   flex-direction: column;
+  padding: 2rem;
+  background-color: ${(props) => props.theme.colors.backgroundSecondary};
 `;
 
 const Image = styled.img`

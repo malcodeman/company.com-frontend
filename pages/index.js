@@ -84,6 +84,7 @@ const ProductsGrid = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: repeat(4, 256px);
   grid-gap: 1rem;
+  margin-bottom: 2rem;
   @media (min-width: ${BREAKPOINTS.LARGE_DEVICES}) {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 512px 512px;
@@ -96,7 +97,6 @@ const StyledProductLink = styled.a`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  margin-bottom: 2rem;
   padding: 1rem;
   background-color: ${(props) => props.bgColor || "initial"};
 `;
