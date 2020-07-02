@@ -101,7 +101,7 @@ function Products(props) {
         <Grid>
           {products.map((item) => {
             return (
-              <GridItem key={item.id}>
+              <GridItem key={item.id} id={item.title}>
                 <Image src={`${NEXT_PUBLIC_STRAPI_API_URL}${item.image.url}`} />
                 <Title>{item.title}</Title>
                 <Description>{item.description}</Description>

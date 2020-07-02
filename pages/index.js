@@ -2,6 +2,7 @@ import Link from "next/link";
 import styled from "styled-components";
 import Typed from "react-typed";
 import { ArrowDownCircle as ArrowDownCircleIcon } from "react-feather";
+import { nanoid } from "nanoid";
 
 import Heading from "../components/Heading";
 import Container from "../components/Container";
@@ -16,6 +17,8 @@ import StrategyIcon from "../icons/Strategy";
 import DesignIcon from "../icons/Design";
 import DevelopmentIcon from "../icons/Development";
 import WorkWithUs from "../components/WorkWithUs";
+
+import { BREAKPOINTS } from "../lib/constants";
 
 const StyledContainer = styled(Container)`
   margin-bottom: 6rem;
@@ -49,9 +52,12 @@ const HeadingWrapper = styled.div`
 
 const ProcessGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-gap: 1rem;
   margin-bottom: 2rem;
+  @media (min-width: ${BREAKPOINTS.LARGE_DEVICES}) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 `;
 
 const ProcessGridItem = styled.div`
@@ -59,31 +65,52 @@ const ProcessGridItem = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
+  position: relative;
 `;
 
 const ProcessDescription = styled(ParagraphMedium)`
   color: ${(props) => props.theme.colors.contentSecondary};
 `;
 
-const ProductsGrid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 512px 512px;
-  grid-gap: 1rem;
+const StepImage = styled.img`
+  display: none;
+  position: absolute;
+  top: 25%;
+  right: -25%;
+  max-height: 36px;
+  @media (min-width: ${BREAKPOINTS.LARGE_DEVICES}) {
+    display: initial;
+  }
 `;
 
-const ProductsGridItem = styled.div`
+const ProductsGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, 256px);
+  grid-gap: 1rem;
+  @media (min-width: ${BREAKPOINTS.LARGE_DEVICES}) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 512px 512px;
+  }
+`;
+
+const StyledProductLink = styled.a`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   margin-bottom: 2rem;
+  padding: 1rem;
   background-color: ${(props) => props.bgColor || "initial"};
 `;
 
 const ProductImage = styled.img`
+  display: none;
   margin-bottom: 1rem;
+  @media (min-width: ${BREAKPOINTS.SMALL_DEVICES}) {
+    display: initial;
+  }
 `;
 
 const ProductTitle = styled(ParagraphLarge)`
@@ -116,18 +143,27 @@ const Button = styled.button`
 
 const StatsGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-gap: 1rem;
   margin-bottom: 2rem;
+  @media (min-width: ${BREAKPOINTS.SMALL_DEVICES}) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 `;
 
 const StatsGridItem = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
-  padding: 2rem 0;
+  padding: 2rem;
   &:not(:last-child) {
-    border-right: 1px solid #070606;
+    border-bottom: 1px solid #070606;
+  }
+  @media (min-width: ${BREAKPOINTS.SMALL_DEVICES}) {
+    &:not(:last-child) {
+      border-bottom: 0;
+      border-right: 1px solid #070606;
+    }
   }
 `;
 
@@ -145,18 +181,23 @@ const TYPED_STRINGS = [
 ];
 const PROCESS = [
   {
+    id: nanoid(),
     title: "Strategy",
     description:
       "As a partner specialized in building startups we help you craft a powerful product and marketing strategy to win the market.",
     icon: <StrategyIcon size={224} />,
+    stepIcon: <StepImage src="step-1.png" />,
   },
   {
+    id: nanoid(),
     title: "Design",
     description:
       "We can help you discover and design a perfect product UX/UI that will delight users.",
     icon: <DesignIcon size={224} />,
+    stepIcon: <StepImage src="step-2.png" />,
   },
   {
+    id: nanoid(),
     title: "Development",
     description:
       "We can develop a robust Software MVP or larger technical solution for your startup or innovation project to ensure quick time to market and an optimal level of quality.",
@@ -165,38 +206,49 @@ const PROCESS = [
 ];
 const PRODUCTS = [
   {
+    id: nanoid(),
     title: "NAGA Trader",
     image: "front-swipestox.png",
     backgroundColor: "#101115",
+    link: "/products#Naga",
   },
   {
+    id: nanoid(),
     title: "Fishbrain",
     image: "front-fishbrain.png",
     backgroundColor: "#0bbcc3",
+    link: "/products#Fishbrain",
   },
   {
+    id: nanoid(),
     title: "Amuse",
     image: "front-amuse.png",
     backgroundColor: "#f2e722",
+    link: "/products#Amuse",
   },
   {
+    id: nanoid(),
     title: "Hybird",
     image: "front-hybird.png",
     backgroundColor: "#64efa1",
+    link: "/products#HyBird",
   },
 ];
 const STATS = [
   {
+    id: nanoid(),
     number: "40+",
     emoji: "🚀",
     label: "Products launched",
   },
   {
+    id: nanoid(),
     number: "27,812",
     emoji: "🔥",
     label: "Production commits",
   },
   {
+    id: nanoid(),
     number: "25",
     emoji: "💻",
     label: "Daily Releases",
@@ -229,10 +281,11 @@ function Home() {
         <ProcessGrid id="process">
           {PROCESS.map((item) => {
             return (
-              <ProcessGridItem>
+              <ProcessGridItem key={item.id}>
                 {item.icon}
                 <ParagraphLarge>{item.title}</ParagraphLarge>
                 <ProcessDescription>{item.description}</ProcessDescription>
+                {item.stepIcon}
               </ProcessGridItem>
             );
           })}
@@ -243,10 +296,14 @@ function Home() {
         <ProductsGrid>
           {PRODUCTS.map((item) => {
             return (
-              <ProductsGridItem bgColor={item.backgroundColor}>
+              <StyledProductLink
+                key={item.id}
+                href={item.link}
+                bgColor={item.backgroundColor}
+              >
                 <ProductImage src={item.image} />
                 <ProductTitle>{item.title}</ProductTitle>
-              </ProductsGridItem>
+              </StyledProductLink>
             );
           })}
         </ProductsGrid>
@@ -263,7 +320,7 @@ function Home() {
         <StatsGrid>
           {STATS.map((item) => {
             return (
-              <StatsGridItem>
+              <StatsGridItem key={item.id}>
                 <StatsNumber>{item.number}</StatsNumber>
                 <ParagraphLarge>
                   <Emoji role="img" aria-label="emoji">
