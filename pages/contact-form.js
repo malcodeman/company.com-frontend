@@ -3,36 +3,16 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 import FormControl from "../components/FormControl";
+import { Input, SIZE as InputSize } from "../components/input";
+import { Button, SIZE as ButtonSize } from "../components/button";
+import { Textarea, SIZE as TextareaSize } from "../components/textarea";
 
 const InputWrapper = styled.div`
   margin-bottom: 1rem;
 `;
 
-const Input = styled.input`
-  font-size: 1rem;
-  padding: 1rem 2rem;
-  border: 1px solid #ccc;
+const StyledButton = styled(Button)`
   width: 100%;
-`;
-
-const Textarea = styled.textarea`
-  font-size: 1rem;
-  padding: 1rem 2rem;
-  border: 1px solid #ccc;
-  width: 100%;
-  font-family: "Open Sans", sans-serif;
-  resize: vertical;
-  min-height: 6rem;
-`;
-
-const Button = styled.button`
-  background-color: #e81220;
-  border: 0;
-  height: 64px;
-  color: #fff;
-  cursor: pointer;
-  width: 100%;
-  font-size: 2rem;
 `;
 
 function ContactForm(props) {
@@ -72,6 +52,7 @@ function ContactForm(props) {
             value={formik.values.name}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
+            size={InputSize.large}
           />
         </FormControl>
         <FormControl
@@ -85,6 +66,7 @@ function ContactForm(props) {
             value={formik.values.email}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
+            size={InputSize.large}
           />
         </FormControl>
         <FormControl
@@ -98,6 +80,7 @@ function ContactForm(props) {
             value={formik.values.company}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
+            size={InputSize.large}
           />
         </FormControl>
         <FormControl
@@ -110,10 +93,11 @@ function ContactForm(props) {
             value={formik.values.message}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
+            size={TextareaSize.large}
           />
         </FormControl>
       </InputWrapper>
-      <Button>Send</Button>
+      <StyledButton size={ButtonSize.large}>Send</StyledButton>
     </form>
   );
 }

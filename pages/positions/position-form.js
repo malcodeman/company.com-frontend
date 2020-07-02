@@ -3,26 +3,15 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 import FormControl from "../../components/FormControl";
+import { Input, SIZE as inputSize } from "../../components/input";
+import { Button } from "../../components/button";
 
 const InputWrapper = styled.div`
   margin-bottom: 1rem;
 `;
 
-const Input = styled.input`
-  font-size: 1rem;
-  padding: 1rem 2rem;
-  border: 1px solid #ccc;
+const StyledButton = styled(Button)`
   width: 100%;
-`;
-
-const Button = styled.button`
-  background-color: #e81220;
-  border: 0;
-  height: 64px;
-  color: #fff;
-  cursor: pointer;
-  width: 100%;
-  font-size: 2rem;
 `;
 
 function PositionForm(props) {
@@ -71,6 +60,7 @@ function PositionForm(props) {
             value={formik.values.firstName}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
+            size={inputSize.large}
           />
         </FormControl>
         <FormControl
@@ -84,6 +74,7 @@ function PositionForm(props) {
             value={formik.values.lastName}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
+            size={inputSize.large}
           />
         </FormControl>
         <FormControl
@@ -97,6 +88,7 @@ function PositionForm(props) {
             value={formik.values.email}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
+            size={inputSize.large}
           />
         </FormControl>
         <FormControl
@@ -110,6 +102,7 @@ function PositionForm(props) {
             value={formik.values.age}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
+            size={inputSize.large}
           />
         </FormControl>
         <FormControl
@@ -123,6 +116,7 @@ function PositionForm(props) {
             value={formik.values.phone}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
+            size={inputSize.large}
           />
         </FormControl>
         <FormControl
@@ -136,6 +130,7 @@ function PositionForm(props) {
             value={formik.values.portfolio}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
+            size={inputSize.large}
           />
         </FormControl>
         <FormControl
@@ -149,6 +144,7 @@ function PositionForm(props) {
             value={formik.values.salary}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
+            size={inputSize.large}
           />
         </FormControl>
         <FormControl
@@ -162,6 +158,7 @@ function PositionForm(props) {
             value={formik.values.cvLink}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
+            size={inputSize.large}
           />
         </FormControl>
         <FormControl
@@ -175,10 +172,11 @@ function PositionForm(props) {
             value={formik.values.linkedin}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
+            size={inputSize.large}
           />
         </FormControl>
       </InputWrapper>
-      <Button>Submit Application</Button>
+      <StyledButton>Submit Application</StyledButton>
     </form>
   );
 }
