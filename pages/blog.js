@@ -1,10 +1,10 @@
 import styled from "styled-components";
+import { nanoid } from "nanoid";
 
 import Heading from "../components/Heading";
 import Container from "../components/Container";
 import Layout from "../components/Layout";
 
-import json from "../public/blogs.json";
 import { BREAKPOINTS } from "../lib/constants";
 
 const StyledContainer = styled(Container)`
@@ -55,6 +55,26 @@ const BlogFooter = styled.div`
   height: 200px;
 `;
 
+const BLOGS = [
+  {
+    id: nanoid(),
+    title: "Technology",
+    image: "tech-blog.png",
+    imageAlternateText: "Technology",
+    text: "Essays about Software Design, Development and Technology",
+    link: "https://medium.com/mop-developers",
+  },
+  {
+    id: nanoid(),
+    title: "Entrepreneurship",
+    image: "ent-blog.png",
+    imageAlternateText: "Entrepreneurship",
+    text:
+      "Essays and stories about entrepreneurship, startup methodology and best practices",
+    link: "https://medium.com/ministry-of-programming-entrepreneurship",
+  },
+];
+
 function Blog() {
   return (
     <Layout>
@@ -63,7 +83,7 @@ function Blog() {
       </StyledContainer>
       <Container>
         <Grid>
-          {json.map((item) => {
+          {BLOGS.map((item) => {
             return (
               <a href={item.link} target="_blank" rel="noopener" key={item.id}>
                 <BlogItem>
