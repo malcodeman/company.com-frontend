@@ -1,19 +1,19 @@
 import styled from "styled-components";
 import { nanoid } from "nanoid";
 
-import Heading from "../components/Heading";
 import Container from "../components/Container";
 import Layout from "../components/Layout";
-import { HeadingSmall, ParagraphMedium } from "../components/Typography";
+import {
+  HeadingSmall,
+  ParagraphMedium,
+  Display2,
+} from "../components/Typography";
 
 import { BREAKPOINTS } from "../lib/constants";
 
-const StyledContainer = styled(Container)`
-  margin-bottom: 2rem;
-`;
-
-const StyledHeading = styled(Heading)`
+const DisplayWrapper = styled.div`
   text-align: center;
+  margin-bottom: 2rem;
 `;
 
 const Grid = styled.div`
@@ -70,10 +70,10 @@ const BLOGS = [
 function Blog() {
   return (
     <Layout>
-      <StyledContainer>
-        <StyledHeading>MOP Blog</StyledHeading>
-      </StyledContainer>
       <Container>
+        <DisplayWrapper>
+          <Display2>MOP Blog</Display2>
+        </DisplayWrapper>
         <Grid>
           {BLOGS.map((item) => {
             return (

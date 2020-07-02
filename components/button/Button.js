@@ -91,7 +91,7 @@ Button.propTypes = {
   isLoading: PropTypes.bool,
   isSelected: PropTypes.bool,
   onClick: PropTypes.func,
-  children: PropTypes.element,
+  children: PropTypes.oneOf([PropTypes.element, PropTypes.string]),
 };
 
 Button.defaultProps = {

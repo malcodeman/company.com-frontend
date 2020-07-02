@@ -1,30 +1,23 @@
 import styled from "styled-components";
 
-import Heading from "../components/Heading";
-import Container from "../components/Container";
 import Layout from "../components/Layout";
 import ContactForm from "./contact-form";
-import { ParagraphLarge } from "../components/Typography";
+import { ParagraphLarge, Display2 } from "../components/Typography";
 
 import { BREAKPOINTS, LAMBDA_API_URL } from "../lib/constants";
 
-const StyledContainer = styled(Container)`
-  margin-bottom: 2rem;
+const DisplayWrapper = styled.div`
+  text-align: center;
 `;
 
-const StyledHeading = styled(Heading)`
-  text-align: center;
-  margin-bottom: 1rem;
+const ContentContainer = styled.div`
+  max-width: ${BREAKPOINTS.LARGE_DEVICES};
+  margin: 0 auto;
+  padding: 0 1rem;
 `;
 
 const HighlightedText = styled.span`
   color: #ee2633;
-`;
-
-const FormWrapper = styled.div`
-  max-width: ${BREAKPOINTS.LARGE_DEVICES};
-  margin: 0 auto;
-  padding: 0 1rem;
 `;
 
 const EmailLink = styled.a`
@@ -51,13 +44,13 @@ function Contact() {
 
   return (
     <Layout>
-      <StyledContainer>
-        <StyledHeading>
-          <HighlightedText>Hello.</HighlightedText> What can we <br /> help you
-          with?
-        </StyledHeading>
-      </StyledContainer>
-      <FormWrapper>
+      <ContentContainer>
+        <DisplayWrapper>
+          <Display2>
+            <HighlightedText>Hello.</HighlightedText> What can we <br /> help
+            you with?
+          </Display2>
+        </DisplayWrapper>
         <ParagraphLarge>
           If you have a question or want to work with us you can send an email
           to:
@@ -68,7 +61,7 @@ function Contact() {
           , or fill the form below
         </ParagraphLarge>
         <ContactForm onSubmit={handleSubmit} />
-      </FormWrapper>
+      </ContentContainer>
     </Layout>
   );
 }

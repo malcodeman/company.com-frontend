@@ -2,7 +2,6 @@ import Link from "next/link";
 import styled from "styled-components";
 import { nanoid } from "nanoid";
 
-import Heading from "../../components/Heading";
 import Container from "../../components/Container";
 import Layout from "../../components/Layout";
 import DumbbellIcon from "../../icons/Dumbbell";
@@ -13,26 +12,19 @@ import AcademicCapIcon from "../../icons/AcademicCap";
 import PopcornIcon from "../../icons/Popcorn";
 import PlaystationControllerIcon from "../../icons/PlaystationController";
 import AppleIcon from "../../icons/Apple";
-import { ParagraphLarge } from "../../components/Typography";
+import { ParagraphLarge, Display2 } from "../../components/Typography";
 
 import { getPositions } from "../../lib/api";
 
 import { BREAKPOINTS } from "../../lib/constants";
 
-const StyledContainer = styled(Container)`
+const DisplayWrapper = styled.div`
+  text-align: center;
   margin-bottom: 2rem;
 `;
 
-const StyledHeading = styled(Heading)`
-  text-align: center;
-`;
-
-const Subheading = styled.p`
-  font-size: 1rem;
-  color: #111;
-  opacity: 0.5;
-  padding: 0 1rem;
-  text-align: center;
+const Subdisplay = styled(ParagraphLarge)`
+  color: ${(props) => props.theme.colors.contentSecondary};
 `;
 
 const EmailLink = styled.a`
@@ -160,16 +152,16 @@ function Positions(props) {
 
   return (
     <Layout>
-      <StyledContainer>
-        <StyledHeading>Join our team</StyledHeading>
-        <Subheading>
-          At MOP we welcome Hackers, Designers, Product Strategists and all
-          other creative people that want to build products that have
-          significant impact! Please send your resume to{" "}
-          <EmailLink href={`mailto:${EMAIL}`}>careers@mop.ba</EmailLink>
-        </Subheading>
-      </StyledContainer>
       <Container>
+        <DisplayWrapper>
+          <Display2>Join our team</Display2>
+          <Subdisplay>
+            At MOP we welcome Hackers, Designers, Product Strategists and all
+            other creative people that want to build products that have
+            significant impact! Please send your resume to{" "}
+            <EmailLink href={`mailto:${EMAIL}`}>careers@mop.ba</EmailLink>
+          </Subdisplay>
+        </DisplayWrapper>
         <HighlightedText>We are searching for:</HighlightedText>
         <Grid>
           {positions.map((item) => {

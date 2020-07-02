@@ -4,35 +4,31 @@ import Typed from "react-typed";
 import { ArrowDownCircle as ArrowDownCircleIcon } from "react-feather";
 import { nanoid } from "nanoid";
 
-import Heading from "../components/Heading";
 import Container from "../components/Container";
 import Layout from "../components/Layout";
 import {
-  HeadingXLarge,
   ParagraphLarge,
   ParagraphMedium,
   HeadingLarge,
+  Display2,
 } from "../components/Typography";
 import StrategyIcon from "../icons/Strategy";
 import DesignIcon from "../icons/Design";
 import DevelopmentIcon from "../icons/Development";
 import WorkWithUs from "../components/WorkWithUs";
+import { Button, KIND } from "../components/button";
 
 import { BREAKPOINTS } from "../lib/constants";
 
-const StyledContainer = styled(Container)`
-  margin-bottom: 6rem;
-`;
-
-const StyledHeading = styled(Heading)`
+const DisplayWrapper = styled.div`
   text-align: center;
+  margin-bottom: 6rem;
   .typed-cursor {
     color: ${(props) => props.theme.colors.accent};
   }
 `;
 
-const Subheading = styled(HeadingXLarge)`
-  text-align: center;
+const Subdisplay = styled(ParagraphLarge)`
   color: ${(props) => props.theme.colors.accent};
 `;
 
@@ -131,14 +127,8 @@ const ButtonWrapper = styled.div`
   text-align: center;
 `;
 
-const Button = styled.button`
-  background-color: #fff;
-  border: 1px solid #979797;
-  padding: 1rem 0;
+const StyledButton = styled(Button)`
   width: 256px;
-  cursor: pointer;
-  color: ${(props) => props.theme.colors.accent};
-  ${(props) => props.theme.typography.ParagraphLarge};
 `;
 
 const StatsGrid = styled.div`
@@ -258,16 +248,20 @@ const STATS = [
 function Home() {
   return (
     <Layout>
-      <StyledContainer>
-        <StyledHeading>
-          <Typed strings={TYPED_STRINGS} cursorChar="|" typeSpeed={35}></Typed>
-        </StyledHeading>
-        <Subheading>
-          We are a software design, development and investment company
-          specialized in working with startups
-        </Subheading>
-      </StyledContainer>
       <Container>
+        <DisplayWrapper>
+          <Display2>
+            <Typed
+              strings={TYPED_STRINGS}
+              cursorChar="|"
+              typeSpeed={35}
+            ></Typed>
+          </Display2>
+          <Subdisplay>
+            We are a software design, development and investment company
+            specialized in working with startups
+          </Subdisplay>
+        </DisplayWrapper>
         <ArrowWrapper>
           <Link href="#process">
             <a>
@@ -313,7 +307,9 @@ function Home() {
         <ButtonWrapper>
           <Link href="/products">
             <a>
-              <Button>See all Products</Button>
+              <StyledButton kind={KIND.secondary}>
+                See all Products
+              </StyledButton>
             </a>
           </Link>
         </ButtonWrapper>

@@ -1,20 +1,19 @@
 import styled from "styled-components";
 
-import Heading from "../components/Heading";
 import Container from "../components/Container";
 import Layout from "../components/Layout";
-import { ParagraphMedium, ParagraphSmall } from "../components/Typography";
+import {
+  ParagraphMedium,
+  ParagraphSmall,
+  Display2,
+} from "../components/Typography";
 
 import { getTestimonials } from "../lib/api";
 import { NEXT_PUBLIC_STRAPI_API_URL } from "../lib/constants";
 
-const StyledContainer = styled(Container)`
-  margin-bottom: 2rem;
-`;
-
-const StyledHeading = styled(Heading)`
+const DisplayWrapper = styled.div`
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 `;
 
 const Grid = styled.div`
@@ -64,10 +63,10 @@ function Testimonials(props) {
 
   return (
     <Layout>
-      <StyledContainer>
-        <StyledHeading>What our partners say</StyledHeading>
-      </StyledContainer>
       <Container>
+        <DisplayWrapper>
+          <Display2>What our partners say</Display2>
+        </DisplayWrapper>
         <Grid>
           {testimonials.map((item) => {
             return (

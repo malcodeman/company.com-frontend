@@ -1,23 +1,18 @@
 import styled from "styled-components";
 
-import Heading from "../../components/Heading";
-import Container from "../../components/Container";
 import Layout from "../../components/Layout";
 import {
   ParagraphLarge,
   ParagraphMedium,
   HeadingLarge,
+  Display2,
 } from "../../components/Typography";
 import PositionForm from "./position-form";
 
 import { getPosition, getPositions } from "../../lib/api";
 import { BREAKPOINTS, LAMBDA_API_URL } from "../../lib/constants";
 
-const StyledContainer = styled(Container)`
-  margin-bottom: 2rem;
-`;
-
-const StyledHeading = styled(Heading)`
+const DisplayWrapper = styled.div`
   text-align: center;
 `;
 
@@ -82,10 +77,10 @@ function Position(props) {
 
   return (
     <Layout>
-      <StyledContainer>
-        <StyledHeading>{position.title}</StyledHeading>
-      </StyledContainer>
       <ContentContainer>
+        <DisplayWrapper>
+          <Display2>{position.title}</Display2>
+        </DisplayWrapper>
         {position.description && (
           <Description>{parseDescription(position.description)}</Description>
         )}

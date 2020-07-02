@@ -9,28 +9,20 @@ import {
 } from "react-feather";
 import psl from "psl";
 
-import Heading from "../components/Heading";
 import Container from "../components/Container";
 import Layout from "../components/Layout";
+import { ParagraphLarge, Display2 } from "../components/Typography";
 
 import { getEmployees } from "../lib/api";
 import { NEXT_PUBLIC_STRAPI_API_URL, EMPLOYE_LINKS } from "../lib/constants";
 
-const StyledContainer = styled(Container)`
+const DisplayWrapper = styled.div`
+  text-align: center;
   margin-bottom: 2rem;
 `;
 
-const StyledHeading = styled(Heading)`
-  text-align: center;
-  margin-bottom: 1rem;
-`;
-
-const Subheading = styled.p`
-  font-size: 1rem;
-  color: #111;
-  opacity: 0.5;
-  padding: 0 1rem;
-  text-align: center;
+const Subdisplay = styled(ParagraphLarge)`
+  color: ${(props) => props.theme.colors.contentSecondary};
 `;
 
 const Grid = styled.div`
@@ -137,15 +129,15 @@ function Team(props) {
 
   return (
     <Layout>
-      <StyledContainer>
-        <StyledHeading>Meet our people</StyledHeading>
-        <Subheading>
-          We are a group of multi-skilled individuals who are entrepreneurial by
-          nature and live to make digital products and services that people love
-          to use.
-        </Subheading>
-      </StyledContainer>
       <Container>
+        <DisplayWrapper>
+          <Display2>Meet our people</Display2>
+          <Subdisplay>
+            We are a group of multi-skilled individuals who are entrepreneurial
+            by nature and live to make digital products and services that people
+            love to use.
+          </Subdisplay>
+        </DisplayWrapper>
         <Grid>
           {employees.map((item) => {
             return (

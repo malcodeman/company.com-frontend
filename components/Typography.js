@@ -49,3 +49,23 @@ export const HeadingXXLarge = styled.h1`
   color: ${(props) => props.theme.colors.contentPrimary};
   ${(props) => props.theme.typography.HeadingXXLarge};
 `;
+
+export const Display1 = styled.div`
+  color: ${(props) => props.theme.colors.contentPrimary};
+  ${(props) => props.theme.typography.Display1};
+`;
+
+export const Display2 = styled.div`
+  color: ${(props) => props.theme.colors.contentPrimary};
+  ${(props) => props.theme.typography.Display2};
+`;
+
+export const Display3 = styled.div`
+  color: ${(props) => props.theme.colors.contentPrimary};
+  ${(props) => props.theme.typography.Display3};
+`;
+
+export const Display4 = styled.div`
+  color: ${(props) => props.theme.colors.contentPrimary};
+  ${(props) => props.theme.typography.Display4};
+`;

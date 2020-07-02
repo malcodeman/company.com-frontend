@@ -1,28 +1,20 @@
 import styled from "styled-components";
 
-import Heading from "../components/Heading";
 import Container from "../components/Container";
 import Layout from "../components/Layout";
-import { ParagraphLarge } from "../components/Typography";
+import { ParagraphLarge, Display2 } from "../components/Typography";
 import ImageGrid from "../components/ImageGrid";
 import WorkWithUs from "../components/WorkWithUs";
 
 import { getInstagramImages } from "../lib/api";
 
-const StyledContainer = styled(Container)`
+const DisplayWrapper = styled.div`
+  text-align: center;
   margin-bottom: 2rem;
 `;
 
-const StyledHeading = styled(Heading)`
-  text-align: center;
-`;
-
-const Subheading = styled.p`
-  font-size: 1rem;
-  color: #111;
-  opacity: 0.5;
-  padding: 0 1rem;
-  text-align: center;
+const Subdisplay = styled(ParagraphLarge)`
+  color: ${(props) => props.theme.colors.contentSecondary};
 `;
 
 const Section = styled.section`
@@ -48,15 +40,15 @@ function Careers(props) {
 
   return (
     <Layout>
-      <StyledContainer>
-        <StyledHeading>Join our team</StyledHeading>
-        <Subheading>
-          At MOP we welcome Hackers, Designers, Product Strategists and all
-          other creative people that want to build products that have
-          significant impact!
-        </Subheading>
-      </StyledContainer>
       <Container>
+        <DisplayWrapper>
+          <Display2>Join our team</Display2>
+          <Subdisplay>
+            At MOP we welcome Hackers, Designers, Product Strategists and all
+            other creative people that want to build products that have
+            significant impact!
+          </Subdisplay>
+        </DisplayWrapper>
         <Section>
           <StyledParagraphLarge>
             Who are we and what do we do?

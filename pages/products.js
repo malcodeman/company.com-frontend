@@ -1,31 +1,27 @@
 import React from "react";
 import styled from "styled-components";
 
-import Heading from "../components/Heading";
 import Container from "../components/Container";
 import Layout from "../components/Layout";
 import WorkWithUs from "../components/WorkWithUs";
-import { ParagraphMedium, HeadingSmall } from "../components/Typography";
+import {
+  ParagraphMedium,
+  HeadingSmall,
+  Display2,
+  ParagraphLarge,
+} from "../components/Typography";
 import { Button, KIND } from "../components/button";
 
 import { getProducts } from "../lib/api";
 import { NEXT_PUBLIC_STRAPI_API_URL } from "../lib/constants";
 
-const StyledContainer = styled(Container)`
+const DisplayWrapper = styled.div`
+  text-align: center;
   margin-bottom: 2rem;
 `;
 
-const StyledHeading = styled(Heading)`
-  text-align: center;
-  margin-bottom: 1rem;
-`;
-
-const Subheading = styled.p`
-  font-size: 1rem;
-  color: #111;
-  opacity: 0.5;
-  padding: 0 1rem;
-  text-align: center;
+const Subdisplay = styled(ParagraphLarge)`
+  color: ${(props) => props.theme.colors.contentSecondary};
 `;
 
 const Grid = styled.div`
@@ -75,15 +71,15 @@ function Products(props) {
 
   return (
     <Layout>
-      <StyledContainer>
-        <StyledHeading>Products we are building</StyledHeading>
-        <Subheading>
-          We are a group of multi-skilled individuals who are entrepreneurial by
-          nature and live to make digital products and services that people love
-          to use.
-        </Subheading>
-      </StyledContainer>
       <Container>
+        <DisplayWrapper>
+          <Display2>Products we are building</Display2>
+          <Subdisplay>
+            We are a group of multi-skilled individuals who are entrepreneurial
+            by nature and live to make digital products and services that people
+            love to use.
+          </Subdisplay>
+        </DisplayWrapper>
         <Grid>
           {products.map((item) => {
             return (

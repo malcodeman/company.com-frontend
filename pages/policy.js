@@ -1,18 +1,17 @@
 import styled from "styled-components";
 
-import Heading from "../components/Heading";
-import Container from "../components/Container";
 import Layout from "../components/Layout";
-import { ParagraphLarge, HeadingXSmall } from "../components/Typography";
+import {
+  ParagraphLarge,
+  HeadingXSmall,
+  Display2,
+} from "../components/Typography";
 
 import { BREAKPOINTS } from "../lib/constants";
 
-const StyledContainer = styled(Container)`
-  margin-bottom: 2rem;
-`;
-
-const StyledHeading = styled(Heading)`
+const DisplayWrapper = styled.div`
   text-align: center;
+  margin-bottom: 2rem;
 `;
 
 const ContentContainer = styled.div`
@@ -32,10 +31,10 @@ const StyledParagraphLarge = styled(ParagraphLarge)`
 function Policy() {
   return (
     <Layout>
-      <StyledContainer>
-        <StyledHeading>Ministry of Programming Privacy Policy</StyledHeading>
-      </StyledContainer>
       <ContentContainer>
+        <DisplayWrapper>
+          <Display2>Ministry of Programming Privacy Policy</Display2>
+        </DisplayWrapper>
         <Section>
           <HeadingXSmall>
             Privacy Statement for Ministry of Programming
