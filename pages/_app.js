@@ -1,5 +1,7 @@
 import { ThemeProvider } from "styled-components";
 
+import "react-typed/dist/animatedCursor.css";
+
 import GlobalStyle from "../styles/globalStyle";
 import themes from "../styles/themes";
 

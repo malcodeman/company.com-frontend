@@ -3,6 +3,7 @@ import { createGlobalStyle } from "styled-components";
 const global = createGlobalStyle`
   html {
     box-sizing: border-box;
+    scroll-behavior: smooth;
   }
 
   *,
