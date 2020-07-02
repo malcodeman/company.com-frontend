@@ -81,13 +81,16 @@ const StepImage = styled.img`
 
 const ProductsGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(4, 256px);
+  grid-template-columns: 1fr 1fr;
   grid-gap: 1rem;
   margin-bottom: 2rem;
+  @media (min-width: ${BREAKPOINTS.SMALL_DEVICES}) {
+    grid-template-rows: repeat(4, 256px);
+    grid-template-columns: 1fr;
+  }
   @media (min-width: ${BREAKPOINTS.LARGE_DEVICES}) {
+    grid-template-rows: repeat(2, 512px);
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 512px 512px;
   }
 `;
 
