@@ -10,6 +10,7 @@ const Grid = styled.div`
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
   grid-gap: 2rem;
+  background-color: ${(props) => props.theme.colors.backgroundPrimary};
 `;
 
 function Layout(props) {

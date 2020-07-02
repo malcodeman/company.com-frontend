@@ -157,12 +157,12 @@ const StatsGridItem = styled.div`
   text-align: center;
   padding: 2rem;
   &:not(:last-child) {
-    border-bottom: 1px solid #070606;
+    border-bottom: 1px solid ${(props) => props.theme.colors.border};
   }
   @media (min-width: ${BREAKPOINTS.SMALL_DEVICES}) {
     &:not(:last-child) {
       border-bottom: 0;
-      border-right: 1px solid #070606;
+      border-right: 1px solid ${(props) => props.theme.colors.border};
     }
   }
 `;

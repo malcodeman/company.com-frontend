@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Heading from "../components/Heading";
 import Container from "../components/Container";
 import Layout from "../components/Layout";
+import { ParagraphMedium, ParagraphSmall } from "../components/Typography";
 
 import { getTestimonials } from "../lib/api";
 import { NEXT_PUBLIC_STRAPI_API_URL } from "../lib/constants";
@@ -26,11 +27,8 @@ const GridItem = styled.div`
   display: flex;
   flex-direction: column;
   padding: 2rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  &:hover {
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  }
+  background-color: ${(props) => props.theme.colors.backgroundSecondary};
 `;
 
 const Header = styled.div`
@@ -45,20 +43,12 @@ const Image = styled.img`
 
 const Quote = styled.span`
   font-size: 1.2rem;
-  color: #475059;
-`;
-
-const Text = styled.p`
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  line-height: 1.4;
-  color: #475059;
+  color: ${(props) => props.theme.colors.contentPrimary};
 `;
 
 const Footer = styled.div`
   display: flex;
   align-items: center;
-  color: #475059;
 `;
 
 const AuthorImage = styled.img`
@@ -67,16 +57,6 @@ const AuthorImage = styled.img`
   border-radius: 50%;
   object-fit: cover;
   margin-right: 1rem;
-`;
-
-const AuthorName = styled.span`
-  font-weight: 700;
-  font-size: 0.8rem;
-  display: block;
-`;
-
-const AuthorDescription = styled.span`
-  font-size: 0.8rem;
 `;
 
 function Testimonials(props) {
@@ -99,20 +79,18 @@ function Testimonials(props) {
                     />
                   </a>
                 </Header>
-                <Text>
+                <ParagraphMedium>
                   <Quote>“</Quote>
                   {item.text}
                   <Quote>“</Quote>
-                </Text>
+                </ParagraphMedium>
                 <Footer>
                   <AuthorImage
                     src={`${NEXT_PUBLIC_STRAPI_API_URL}${item.author_image.url}`}
                   />
                   <div>
-                    <AuthorName>{item.author_name}</AuthorName>
-                    <AuthorDescription>
-                      {item.author_description}
-                    </AuthorDescription>
+                    <ParagraphSmall>{item.author_name}</ParagraphSmall>
+                    <ParagraphSmall>{item.author_description}</ParagraphSmall>
                   </div>
                 </Footer>
               </GridItem>

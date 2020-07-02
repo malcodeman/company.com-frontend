@@ -4,6 +4,7 @@ import { nanoid } from "nanoid";
 import Heading from "../components/Heading";
 import Container from "../components/Container";
 import Layout from "../components/Layout";
+import { HeadingSmall, ParagraphMedium } from "../components/Typography";
 
 import { BREAKPOINTS } from "../lib/constants";
 
@@ -28,6 +29,7 @@ const BlogItem = styled.div`
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  background-color: ${(props) => props.theme.colors.backgroundSecondary};
 `;
 
 const Image = styled.img`
@@ -35,22 +37,12 @@ const Image = styled.img`
   height: 100%;
 `;
 
-const BlogTitle = styled.h2`
-  font-size: 30px;
-  font-style: normal;
-  font-weight: 700;
-  color: #111;
+const BlogTitle = styled(HeadingSmall)`
   text-transform: uppercase;
   margin-bottom: 1rem;
 `;
 
-const BlogText = styled.p`
-  font-size: 1rem;
-  color: #111;
-`;
-
 const BlogFooter = styled.div`
-  background-color: #e1e1e1;
   padding: 2rem;
   height: 200px;
 `;
@@ -90,7 +82,7 @@ function Blog() {
                   <Image src={item.image} alt={item.imageAlternateText} />
                   <BlogFooter>
                     <BlogTitle>{item.title}</BlogTitle>
-                    <BlogText>{item.text}</BlogText>
+                    <ParagraphMedium>{item.text}</ParagraphMedium>
                   </BlogFooter>
                 </BlogItem>
               </a>

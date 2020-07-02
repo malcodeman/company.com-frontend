@@ -13,6 +13,7 @@ import AcademicCapIcon from "../../icons/AcademicCap";
 import PopcornIcon from "../../icons/Popcorn";
 import PlaystationControllerIcon from "../../icons/PlaystationController";
 import AppleIcon from "../../icons/Apple";
+import { ParagraphLarge } from "../../components/Typography";
 
 import { getPositions } from "../../lib/api";
 
@@ -60,8 +61,8 @@ const Title = styled.span`
 
 const GridItem = styled.div`
   padding: 1rem;
-  border-bottom: 2px solid #eaeaea;
   cursor: pointer;
+  border-bottom: 2px solid ${(props) => props.theme.colors.border};
   &:hover ${Title} {
     color: ${(props) => props.theme.colors.accent};
   }
@@ -84,11 +85,6 @@ const PerksGrid = styled.div`
 const Perk = styled.div`
   display: flex;
   align-items: center;
-`;
-
-const PerkText = styled.span`
-  color: ${(props) => props.theme.colors.contentPrimary};
-  ${(props) => props.theme.typography.font550};
 `;
 
 const EMAIL = "careers@mop.ba";
@@ -197,7 +193,7 @@ function Positions(props) {
             return (
               <Perk key={item.id}>
                 {item.icon}
-                <PerkText>{item.text}</PerkText>
+                <ParagraphLarge>{item.text}</ParagraphLarge>
               </Perk>
             );
           })}

@@ -5,6 +5,8 @@ import Heading from "../components/Heading";
 import Container from "../components/Container";
 import Layout from "../components/Layout";
 import WorkWithUs from "../components/WorkWithUs";
+import { ParagraphMedium, HeadingSmall } from "../components/Typography";
+import { Button, KIND } from "../components/button";
 
 import { getProducts } from "../lib/api";
 import { NEXT_PUBLIC_STRAPI_API_URL } from "../lib/constants";
@@ -47,17 +49,11 @@ const Image = styled.img`
   margin-bottom: 1rem;
 `;
 
-const Title = styled.span`
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  color: #111;
+const Title = styled(HeadingSmall)`
   margin-bottom: 1rem;
 `;
 
-const Description = styled.p`
-  font-size: 0.8rem;
-  color: #888;
+const Description = styled(ParagraphMedium)`
   margin-bottom: 1rem;
 `;
 
@@ -70,18 +66,8 @@ const Footer = styled.div`
   }
 `;
 
-const Link = styled.a`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #d6d6d6;
-  padding: 0.5rem 1rem;
-  color: #000;
-  &:hover {
-    color: #fff;
-    background-color: #ef1a24;
-    border: 1px solid transparent;
-  }
+const StyledButton = styled(Button)`
+  width: 100%;
 `;
 
 function Products(props) {
@@ -107,23 +93,25 @@ function Products(props) {
                 <Description>{item.description}</Description>
                 <Footer>
                   {item.app_store && (
-                    <Link href={item.app_store} target="_blank" rel="noopener">
-                      Appstore
-                    </Link>
+                    <a href={item.app_store} target="_blank" rel="noopener">
+                      <StyledButton kind={KIND.secondary}>
+                        Appstore
+                      </StyledButton>
+                    </a>
                   )}
                   {item.google_play && (
-                    <Link
-                      href={item.google_play}
-                      target="_blank"
-                      rel="noopener"
-                    >
-                      Google Play
-                    </Link>
+                    <a href={item.google_play} target="_blank" rel="noopener">
+                      <StyledButton kind={KIND.secondary}>
+                        Google Play
+                      </StyledButton>
+                    </a>
                   )}
                   {item.website && (
-                    <Link href={item.website} target="_blank" rel="noopener">
-                      Visit Live
-                    </Link>
+                    <a href={item.website} target="_blank" rel="noopener">
+                      <StyledButton kind={KIND.secondary}>
+                        Visit Live
+                      </StyledButton>
+                    </a>
                   )}
                 </Footer>
               </GridItem>

@@ -4,6 +4,7 @@ import Heading from "../components/Heading";
 import Container from "../components/Container";
 import Layout from "../components/Layout";
 import ContactForm from "./contact-form";
+import { ParagraphLarge } from "../components/Typography";
 
 import { BREAKPOINTS, LAMBDA_API_URL } from "../lib/constants";
 
@@ -24,13 +25,6 @@ const FormWrapper = styled.div`
   max-width: ${BREAKPOINTS.LARGE_DEVICES};
   margin: 0 auto;
   padding: 0 1rem;
-`;
-
-const Paragraph = styled.p`
-  color: #111;
-  font-size: 1rem;
-  margin-bottom: 2rem;
-  line-height: 1.4;
 `;
 
 const EmailLink = styled.a`
@@ -64,7 +58,7 @@ function Contact() {
         </StyledHeading>
       </StyledContainer>
       <FormWrapper>
-        <Paragraph>
+        <ParagraphLarge>
           If you have a question or want to work with us you can send an email
           to:
           <br />
@@ -72,7 +66,7 @@ function Contact() {
             info@ministryofprogramming.com
           </EmailLink>
           , or fill the form below
-        </Paragraph>
+        </ParagraphLarge>
         <ContactForm onSubmit={handleSubmit} />
       </FormWrapper>
     </Layout>
