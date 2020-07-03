@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 import Layout from "../../components/Layout";
 import {
@@ -47,6 +48,7 @@ const ListItem = styled.li`
 
 function Position(props) {
   const { position } = props;
+  const { t } = useTranslation();
 
   async function handleSubmit(formik) {
     const values = {
@@ -86,7 +88,7 @@ function Position(props) {
         )}
         {position.responsibilities && (
           <ListWrapper>
-            <StyledHeadingLarge>Responsibilities:</StyledHeadingLarge>
+            <StyledHeadingLarge>{t("Responsibilities")}:</StyledHeadingLarge>
             <List>
               {position.responsibilities.map((item) => {
                 return (
@@ -100,7 +102,7 @@ function Position(props) {
         )}
         {position.qualifications && (
           <ListWrapper>
-            <StyledHeadingLarge>Qualifications:</StyledHeadingLarge>
+            <StyledHeadingLarge>{t("Qualifications")}:</StyledHeadingLarge>
             <List>
               {position.qualifications.map((item) => {
                 return (

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useTranslation } from "react-i18next";
 
 import FormControl from "../../components/FormControl";
 import { Input, SIZE as inputSize } from "../../components/input";
@@ -15,17 +16,20 @@ const StyledButton = styled(Button)`
 `;
 
 function PositionForm(props) {
+  const { t } = useTranslation();
   const validationSchema = Yup.object().shape({
-    position: Yup.string().required("Position is required."),
-    firstName: Yup.string().required("First name is required."),
-    lastName: Yup.string().required("Last name is required."),
+    position: Yup.string().required(t("Position is required.")),
+    firstName: Yup.string().required(t("First name is required.")),
+    lastName: Yup.string().required(t("Last name is required.")),
     email: Yup.string()
-      .email("Email is invalid.")
-      .required("Email is required."),
-    age: Yup.number().required("Age is required."),
-    portfolio: Yup.string().url("URL is invalid."),
-    cvLink: Yup.string().required("CV Link is required").url("URL is invalid."),
-    linkedin: Yup.string().url("URL is invalid."),
+      .email(t("Email is invalid."))
+      .required(t("Email is required.")),
+    age: Yup.number().required(t("Age is required.")),
+    portfolio: Yup.string().url(t("URL is invalid.")),
+    cvLink: Yup.string()
+      .required(t("CV Link is required"))
+      .url(t("URL is invalid.")),
+    linkedin: Yup.string().url(t("URL is invalid.")),
   });
   const formik = useFormik({
     validationSchema,
@@ -50,7 +54,7 @@ function PositionForm(props) {
     <form onSubmit={formik.handleSubmit}>
       <InputWrapper>
         <FormControl
-          label="First Name"
+          label={t("First Name")}
           caption={formik.touched.firstName && formik.errors.firstName}
           error={Boolean(formik.errors.firstName && formik.touched.firstName)}
         >
@@ -64,7 +68,7 @@ function PositionForm(props) {
           />
         </FormControl>
         <FormControl
-          label="Last Name"
+          label={t("Last Name")}
           caption={formik.touched.lastName && formik.errors.lastName}
           error={Boolean(formik.errors.lastName && formik.touched.lastName)}
         >
@@ -78,7 +82,7 @@ function PositionForm(props) {
           />
         </FormControl>
         <FormControl
-          label="Email"
+          label={t("Email")}
           caption={formik.touched.email && formik.errors.email}
           error={Boolean(formik.errors.email && formik.touched.email)}
         >
@@ -92,7 +96,7 @@ function PositionForm(props) {
           />
         </FormControl>
         <FormControl
-          label="Age"
+          label={t("Age")}
           caption={formik.touched.age && formik.errors.age}
           error={Boolean(formik.errors.age && formik.touched.age)}
         >
@@ -106,7 +110,7 @@ function PositionForm(props) {
           />
         </FormControl>
         <FormControl
-          label="Phone"
+          label={t("Phone")}
           caption={formik.touched.phone && formik.errors.phone}
           error={Boolean(formik.errors.phone && formik.touched.phone)}
         >
@@ -120,7 +124,7 @@ function PositionForm(props) {
           />
         </FormControl>
         <FormControl
-          label="Portfolio URL"
+          label={t("Portfolio URL")}
           caption={formik.touched.portfolio && formik.errors.portfolio}
           error={Boolean(formik.errors.portfolio && formik.touched.portfolio)}
         >
@@ -134,7 +138,7 @@ function PositionForm(props) {
           />
         </FormControl>
         <FormControl
-          label="Expected salary"
+          label={t("Expected salary")}
           caption={formik.touched.salary && formik.errors.salary}
           error={Boolean(formik.errors.salary && formik.touched.salary)}
         >
@@ -148,7 +152,7 @@ function PositionForm(props) {
           />
         </FormControl>
         <FormControl
-          label="CV Link"
+          label={t("CV Link")}
           caption={formik.touched.cvLink && formik.errors.cvLink}
           error={Boolean(formik.errors.cvLink && formik.touched.cvLink)}
         >
@@ -162,7 +166,7 @@ function PositionForm(props) {
           />
         </FormControl>
         <FormControl
-          label="Linkedin profile"
+          label={t("Linkedin profile")}
           caption={formik.touched.linkedin && formik.errors.linkedin}
           error={Boolean(formik.errors.linkedin && formik.touched.linkedin)}
         >
@@ -176,7 +180,7 @@ function PositionForm(props) {
           />
         </FormControl>
       </InputWrapper>
-      <StyledButton>Submit Application</StyledButton>
+      <StyledButton>{t("Submit Application")}</StyledButton>
     </form>
   );
 }

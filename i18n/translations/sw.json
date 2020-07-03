@@ -94,5 +94,22 @@
   "Daily releases": "Dagliga utsläpp",
   "Stop searching.": "Sluta söka.",
   "Build your product with startup experts": "Bygg din produkt med startexperter",
-  "Work with us": "Jobba med oss"
+  "Work with us": "Jobba med oss",
+  "Position is required.": "Position krävs.",
+  "First name is required.": "Förnamn krävs.",
+  "Last name is required.": "Efternamn krävs.",
+  "Age is required.": "Ålder krävs.",
+  "URL is invalid.": "URL är ogiltig.",
+  "CV Link is required": "CV-länk krävs",
+  "First Name": "Förnamn",
+  "Last Name": "Efternamn",
+  "Age": "Ålder",
+  "Phone": "Telefon",
+  "Portfolio URL": "Portfölj-URL",
+  "Expected salary": "Förväntad lön",
+  "CV Link": "CV-länk",
+  "Linkedin profile": "Linkedin-profil",
+  "Submit Application": "Lämna in ansökan",
+  "Responsibilities": "Ansvar",
+  "Qualifications": "Kvalifikationer"
 }

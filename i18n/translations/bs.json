@@ -94,5 +94,22 @@
   "Daily releases": "Dnevni realeasovi",
   "Stop searching.": "Prestanite tražiti.",
   "Build your product with startup experts": "Napravite svoj proizvod sa stručnjacima za startupe",
-  "Work with us": "Radite s nama"
+  "Work with us": "Radite s nama",
+  "Position is required.": "Pozicija je obavezna.",
+  "First name is required.": "Ime je obavezno.",
+  "Last name is required.": "Prezime je obavezno.",
+  "Age is required.": "Broj godina je obavezan.",
+  "URL is invalid.": "URL je nevažeći.",
+  "CV Link is required": "CV Link je obavezan",
+  "First Name": "Ime",
+  "Last Name": "Prezime",
+  "Age": "Broj godina",
+  "Phone": "Telefon",
+  "Portfolio URL": "Portfolio URL",
+  "Expected salary": "Očekivana plata",
+  "CV Link": "CV Link",
+  "Linkedin profile": "Linkedin profil",
+  "Submit Application": "Pošaljite prijavu",
+  "Responsibilities": "Odgovornosti",
+  "Qualifications": "Kvalifikacije"
 }
