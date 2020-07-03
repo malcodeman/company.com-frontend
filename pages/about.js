@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 import Layout from "../components/Layout";
 import Container from "../components/Container";
@@ -64,18 +65,22 @@ const TeamImage = styled.img`
 `;
 
 function About() {
+  const { t } = useTranslation();
+
   return (
     <Layout>
       <Cover>
         <CoverContainer>
           <div>
             <Display2>
-              We are obsessed with building amazing products with the best
-              founders
+              {t(
+                "We are obsessed with building amazing products with the best founders"
+              )}
             </Display2>
             <Display2>
-              Our mission is to help entrepreneurs launch new products &
-              services, iterate and succeed faster.
+              {t(
+                "Our mission is to help entrepreneurs launch new products & services, iterate and succeed faster."
+              )}
             </Display2>
           </div>
           <Awards>
@@ -86,27 +91,21 @@ function About() {
       </Cover>
       <Section>
         <Container>
-          <HeadingXSmall>About</HeadingXSmall>
+          <HeadingXSmall>{t("About")}</HeadingXSmall>
           <ParagraphLarge>
-            Ministry of Programming is a venture-builder/startup studio. We
-            focus on software design and development consulting services for
-            early-stage startups and new products. We also invest in a few
-            startups every year.
+            {t(
+              "Ministry of Programming is a venture-builder/startup studio. We focus on software design and development consulting services for early-stage startups and new products. We also invest in a few startups every year."
+            )}
           </ParagraphLarge>
           <ParagraphLarge>
-            Unlike the average consultancy or agency, we provide an end-to-end
-            support structure for startups. We are very hands-on and we are not
-            afraid of any technical challenge. We built over 40 products from
-            scratch, including social networks, search engines, crypto trading
-            systems, mobile apps and hardware devices. We built FinTech,
-            HealthTech, and products in many other verticals.
+            {t(
+              "Unlike the average consultancy or agency, we provide an end-to-end support structure for startups. We are very hands-on and we are not afraid of any technical challenge. We built over 40 products from scratch, including social networks, search engines, crypto trading systems, mobile apps and hardware devices. We built FinTech, HealthTech, and products in many other verticals."
+            )}
           </ParagraphLarge>
           <ParagraphLarge>
-            We understand that creating successful startups requires focus,
-            commitment, and determination and that creating startups is a hard
-            challenge in business and technology. We exist to help startups and
-            founders survive and thrive in a difficult environment and make an
-            impact on the world and the economy.
+            {t(
+              "We understand that creating successful startups requires focus, commitment, and determination and that creating startups is a hard challenge in business and technology. We exist to help startups and founders survive and thrive in a difficult environment and make an impact on the world and the economy."
+            )}
           </ParagraphLarge>
         </Container>
       </Section>

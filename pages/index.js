@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Typed from "react-typed";
 import { ArrowDownCircle as ArrowDownCircleIcon } from "react-feather";
 import { nanoid } from "nanoid";
+import { useTranslation } from "react-i18next";
 
 import Container from "../components/Container";
 import Layout from "../components/Layout";
@@ -244,25 +245,28 @@ const STATS = [
     id: nanoid(),
     number: "25",
     emoji: "💻",
-    label: "Daily Releases",
+    label: "Daily releases",
   },
 ];
 
 function Home() {
+  const { t } = useTranslation();
+
   return (
     <Layout>
       <Container>
         <DisplayWrapper>
           <Display2>
             <Typed
-              strings={TYPED_STRINGS}
+              strings={TYPED_STRINGS.map((item) => t(item))}
               cursorChar="|"
               typeSpeed={35}
             ></Typed>
           </Display2>
           <Subdisplay>
-            We are a software design, development and investment company
-            specialized in working with startups
+            {t(
+              "We are a software design, development and investment company specialized in working with startups"
+            )}
           </Subdisplay>
         </DisplayWrapper>
         <ArrowWrapper>
@@ -273,22 +277,22 @@ function Home() {
           </Link>
         </ArrowWrapper>
         <HeadingWrapper>
-          <HeadingLarge>Our process</HeadingLarge>
+          <HeadingLarge>{t("Our process")}</HeadingLarge>
         </HeadingWrapper>
         <ProcessGrid id="process">
           {PROCESS.map((item) => {
             return (
               <ProcessGridItem key={item.id}>
                 {item.icon}
-                <ParagraphLarge>{item.title}</ParagraphLarge>
-                <ProcessDescription>{item.description}</ProcessDescription>
+                <ParagraphLarge>{t(item.title)}</ParagraphLarge>
+                <ProcessDescription>{t(item.description)}</ProcessDescription>
                 {item.stepIcon}
               </ProcessGridItem>
             );
           })}
         </ProcessGrid>
         <HeadingWrapper>
-          <HeadingLarge>Our work</HeadingLarge>
+          <HeadingLarge>{t("Our work")}</HeadingLarge>
         </HeadingWrapper>
         <ProductsGrid>
           {PRODUCTS.map((item) => {
@@ -311,7 +315,7 @@ function Home() {
           <Link href="/products">
             <a>
               <StyledButton kind={KIND.secondary}>
-                See all Products
+                {t("See all Products")}
               </StyledButton>
             </a>
           </Link>
@@ -325,7 +329,7 @@ function Home() {
                   <Emoji role="img" aria-label="emoji">
                     {item.emoji}
                   </Emoji>
-                  {item.label}
+                  {t(item.label)}
                 </ParagraphLarge>
               </StatsGridItem>
             );

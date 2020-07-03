@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 import { HeadingXLarge, ParagraphLarge } from "./Typography";
 
@@ -13,13 +14,14 @@ const StyledHeading = styled(HeadingXLarge)`
 
 function WorkWithUs(props) {
   const { question } = props;
+  const { t } = useTranslation();
 
   return (
     <Wrapper>
-      <ParagraphLarge>{question || "Ready to get started?"}</ParagraphLarge>
+      <ParagraphLarge>{question || t("Ready to get started?")}</ParagraphLarge>
       <Link href="/contact">
         <a>
-          <StyledHeading>Work with us</StyledHeading>
+          <StyledHeading>{t("Work with us")}</StyledHeading>
         </a>
       </Link>
     </Wrapper>
