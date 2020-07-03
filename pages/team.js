@@ -12,7 +12,12 @@ import { useTranslation } from "react-i18next";
 
 import Container from "../components/Container";
 import Layout from "../components/Layout";
-import { ParagraphLarge, Display2 } from "../components/Typography";
+import {
+  ParagraphLarge,
+  Display2,
+  ParagraphMedium,
+  ParagraphSmall,
+} from "../components/Typography";
 
 import { getEmployees } from "../lib/api";
 import { NEXT_PUBLIC_STRAPI_API_URL, EMPLOYE_LINKS } from "../lib/constants";
@@ -84,9 +89,15 @@ const Profile = styled.img`
   object-fit: cover;
 `;
 
-const FooterItem = styled.div`
+const NameWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  ${ParagraphMedium} {
+    color: #fff;
+  }
+  ${ParagraphSmall} {
+    color: #fff;
+  }
 `;
 
 const Name = styled.span`
@@ -151,10 +162,10 @@ function Team(props) {
                   src={`${NEXT_PUBLIC_STRAPI_API_URL}${item.profile_alter.url}`}
                 />
                 <Footer>
-                  <FooterItem>
-                    <Name>{item.name}</Name>
-                    <Description>{item.description}</Description>
-                  </FooterItem>
+                  <NameWrapper>
+                    <ParagraphMedium>{item.name}</ParagraphMedium>
+                    <ParagraphSmall>{item.description}</ParagraphSmall>
+                  </NameWrapper>
                   <Links>
                     {item.links.map((link) => {
                       return (

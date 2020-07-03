@@ -12,6 +12,7 @@ import {
   ParagraphMedium,
   HeadingLarge,
   Display2,
+  Display4,
 } from "../components/Typography";
 import StrategyIcon from "../icons/Strategy";
 import DesignIcon from "../icons/Design";
@@ -103,6 +104,9 @@ const StyledProductLink = styled.a`
   cursor: pointer;
   padding: 1rem;
   background-color: ${(props) => props.bgColor || "initial"};
+  ${Display4} {
+    color: #fff;
+  }
 `;
 
 const ProductImage = styled.img`
@@ -111,10 +115,6 @@ const ProductImage = styled.img`
   @media (min-width: ${BREAKPOINTS.SMALL_DEVICES}) {
     display: initial;
   }
-`;
-
-const ProductTitle = styled(ParagraphLarge)`
-  color: #fff;
 `;
 
 const Awards = styled.div`
@@ -159,10 +159,9 @@ const StatsGridItem = styled.div`
       border-right: 1px solid ${(props) => props.theme.colors.border};
     }
   }
-`;
-
-const StatsNumber = styled(ParagraphLarge)`
-  color: ${(props) => props.theme.colors.accent};
+  ${Display4} {
+    color: ${(props) => props.theme.colors.accent};
+  }
 `;
 
 const Emoji = styled.span`
@@ -303,7 +302,7 @@ function Home() {
                 bgColor={item.backgroundColor}
               >
                 <ProductImage src={item.image} />
-                <ProductTitle>{item.title}</ProductTitle>
+                <Display4>{item.title}</Display4>
               </StyledProductLink>
             );
           })}
@@ -324,7 +323,7 @@ function Home() {
           {STATS.map((item) => {
             return (
               <StatsGridItem key={item.id}>
-                <StatsNumber>{item.number}</StatsNumber>
+                <Display4>{item.number}</Display4>
                 <ParagraphLarge>
                   <Emoji role="img" aria-label="emoji">
                     {item.emoji}
