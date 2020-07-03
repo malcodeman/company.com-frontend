@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
 import { X as XIcon } from "react-feather";
+import { useTranslation } from "react-i18next";
 
 import { ParagraphLarge } from "./Typography";
 
@@ -47,6 +48,7 @@ const StyledParagraphLarge = styled(ParagraphLarge)`
 
 function MobileNavigation(props) {
   const { setMobileNav } = props;
+  const { t } = useTranslation();
 
   return (
     <Wrapper>
@@ -57,7 +59,7 @@ function MobileNavigation(props) {
         return (
           <Link key={item.id} href={item.link}>
             <a>
-              <StyledParagraphLarge>{item.label}</StyledParagraphLarge>
+              <StyledParagraphLarge>{t(item.label)}</StyledParagraphLarge>
             </a>
           </Link>
         );

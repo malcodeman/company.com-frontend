@@ -6,6 +6,7 @@ import {
   Linkedin as LinkedinIcon,
   Instagram as InstagramIcon,
 } from "react-feather";
+import { useTranslation } from "react-i18next";
 
 import Container from "./Container";
 
@@ -99,6 +100,7 @@ const SOCIAL_LINKS = [
 const EMAIL = "hello@mop.ba";
 
 function Footer() {
+  const { t } = useTranslation();
   const year = new Date().getFullYear();
 
   return (
@@ -108,7 +110,7 @@ function Footer() {
           {FOOTER_NAVIGATION.map((item) => {
             return (
               <Link href={item.link} key={item.id}>
-                <StyledLink>{item.label}</StyledLink>
+                <StyledLink>{t(item.label)}</StyledLink>
               </Link>
             );
           })}

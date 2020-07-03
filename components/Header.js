@@ -64,7 +64,7 @@ const MenuListItem = styled.li`
 
 function Header(props) {
   const { setMobileNav, mobileNav } = props;
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const modifiers = React.useMemo(
     () => [
       {
@@ -115,7 +115,7 @@ function Header(props) {
             return (
               <Link href={item.link} key={item.id}>
                 <a>
-                  <LinkText>{item.label}</LinkText>
+                  <LinkText>{t(item.label)}</LinkText>
                 </a>
               </Link>
             );
