@@ -8,6 +8,7 @@ import {
   Facebook as FacebookIcon,
 } from "react-feather";
 import psl from "psl";
+import { useTranslation } from "react-i18next";
 
 import Container from "../components/Container";
 import Layout from "../components/Layout";
@@ -109,6 +110,7 @@ const Link = styled.a`
 
 function Team(props) {
   const { employees } = props;
+  const { t } = useTranslation();
 
   function handleLinkIcon(url) {
     const domain = psl.parse(new URL(url).hostname).sld;
@@ -131,11 +133,11 @@ function Team(props) {
     <Layout>
       <Container>
         <DisplayWrapper>
-          <Display2>Meet our people</Display2>
+          <Display2>{t("Meet our people")}</Display2>
           <Subdisplay>
-            We are a group of multi-skilled individuals who are entrepreneurial
-            by nature and live to make digital products and services that people
-            love to use.
+            {t(
+              "We are a group of multi-skilled individuals who are entrepreneurial by nature and live to make digital products and services that people love to use."
+            )}
           </Subdisplay>
         </DisplayWrapper>
         <Grid>

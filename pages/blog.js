@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { nanoid } from "nanoid";
+import { useTranslation } from "react-i18next";
 
 import Container from "../components/Container";
 import Layout from "../components/Layout";
@@ -68,11 +69,13 @@ const BLOGS = [
 ];
 
 function Blog() {
+  const { t } = useTranslation();
+
   return (
     <Layout>
       <Container>
         <DisplayWrapper>
-          <Display2>MOP Blog</Display2>
+          <Display2>{t("MOP Blog")}</Display2>
         </DisplayWrapper>
         <Grid>
           {BLOGS.map((item) => {
@@ -81,8 +84,8 @@ function Blog() {
                 <BlogItem>
                   <Image src={item.image} alt={item.imageAlternateText} />
                   <BlogFooter>
-                    <BlogTitle>{item.title}</BlogTitle>
-                    <ParagraphMedium>{item.text}</ParagraphMedium>
+                    <BlogTitle>{t(item.title)}</BlogTitle>
+                    <ParagraphMedium>{t(item.text)}</ParagraphMedium>
                   </BlogFooter>
                 </BlogItem>
               </a>

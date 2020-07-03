@@ -7,6 +7,7 @@ import {
   ParagraphSmall,
   Display2,
 } from "../components/Typography";
+import { useTranslation } from "react-i18next";
 
 import { getTestimonials } from "../lib/api";
 import { NEXT_PUBLIC_STRAPI_API_URL } from "../lib/constants";
@@ -60,12 +61,13 @@ const AuthorImage = styled.img`
 
 function Testimonials(props) {
   const { testimonials } = props;
+  const { t } = useTranslation();
 
   return (
     <Layout>
       <Container>
         <DisplayWrapper>
-          <Display2>What our partners say</Display2>
+          <Display2>{t("What our partners say")}</Display2>
         </DisplayWrapper>
         <Grid>
           {testimonials.map((item) => {

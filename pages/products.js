@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 import Container from "../components/Container";
 import Layout from "../components/Layout";
@@ -70,16 +71,17 @@ const StyledButton = styled(Button)`
 
 function Products(props) {
   const { products } = props;
+  const { t } = useTranslation();
 
   return (
     <Layout>
       <Container>
         <DisplayWrapper>
-          <Display2>Products we are building</Display2>
+          <Display2>{t("Products we are building")}</Display2>
           <Subdisplay>
-            We are a group of multi-skilled individuals who are entrepreneurial
-            by nature and live to make digital products and services that people
-            love to use.
+            {t(
+              "We are a group of multi-skilled individuals who are entrepreneurial by nature and live to make digital products and services that people love to use."
+            )}
           </Subdisplay>
         </DisplayWrapper>
         <Grid>
@@ -116,7 +118,7 @@ function Products(props) {
             );
           })}
         </Grid>
-        <WorkWithUs question="Ready to get started?" />
+        <WorkWithUs question={t("Ready to get started?")} />
       </Container>
     </Layout>
   );
