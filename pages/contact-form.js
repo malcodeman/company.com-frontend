@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useTranslation } from "react-i18next";
 
 import FormControl from "../components/FormControl";
 import { Input, SIZE as InputSize } from "../components/input";
@@ -16,14 +17,18 @@ const StyledButton = styled(Button)`
 `;
 
 function ContactForm(props) {
+  const { t } = useTranslation();
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required("Name is required."),
+    name: Yup.string().required(t("Name is required.")),
     email: Yup.string()
-      .email("Email is invalid.")
-      .required("Email is required."),
+      .email(t("Email is invalid."))
+      .required(t("Email is required.")),
     message: Yup.string()
-      .required("Message is required.")
-      .min(10, "Please enter a message with at least 10 characters in length."),
+      .required(t("Message is required."))
+      .min(
+        10,
+        t("Please enter a message with at least 10 characters in length.")
+      ),
   });
   const formik = useFormik({
     validationSchema,
@@ -42,7 +47,7 @@ function ContactForm(props) {
     <form onSubmit={formik.handleSubmit}>
       <InputWrapper>
         <FormControl
-          label="Name"
+          label={t("Name")}
           caption={formik.touched.name && formik.errors.name}
           error={Boolean(formik.errors.name && formik.touched.name)}
         >
@@ -56,7 +61,7 @@ function ContactForm(props) {
           />
         </FormControl>
         <FormControl
-          label="Email"
+          label={t("Email")}
           caption={formik.touched.email && formik.errors.email}
           error={Boolean(formik.errors.email && formik.touched.email)}
         >
@@ -70,7 +75,7 @@ function ContactForm(props) {
           />
         </FormControl>
         <FormControl
-          label="Company"
+          label={t("Company")}
           caption={formik.touched.company && formik.errors.company}
           error={Boolean(formik.errors.company && formik.touched.company)}
         >
@@ -84,7 +89,7 @@ function ContactForm(props) {
           />
         </FormControl>
         <FormControl
-          label="Message"
+          label={t("Message")}
           caption={formik.touched.message && formik.errors.message}
           error={Boolean(formik.errors.message && formik.touched.message)}
         >
@@ -97,7 +102,7 @@ function ContactForm(props) {
           />
         </FormControl>
       </InputWrapper>
-      <StyledButton size={ButtonSize.large}>Send</StyledButton>
+      <StyledButton size={ButtonSize.large}>{t("Send")}</StyledButton>
     </form>
   );
 }

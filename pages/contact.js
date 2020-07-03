@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 import Layout from "../components/Layout";
 import ContactForm from "./contact-form";
@@ -27,6 +28,8 @@ const EmailLink = styled.a`
 const EMAIL = "info@ministryofprogramming.com";
 
 function Contact() {
+  const { t } = useTranslation();
+
   async function handleSubmit(formik) {
     const response = await fetch(`${LAMBDA_API_URL}/dev/contact`, {
       method: "POST",
@@ -47,18 +50,20 @@ function Contact() {
       <ContentContainer>
         <DisplayWrapper>
           <Display2>
-            <HighlightedText>Hello.</HighlightedText> What can we <br /> help
-            you with?
+            <HighlightedText>{t("Hello.")}</HighlightedText> {t("What can we")}
+            <br /> {t("help you with?")}
           </Display2>
         </DisplayWrapper>
         <ParagraphLarge>
-          If you have a question or want to work with us you can send an email
-          to:
+          {t(
+            "If you have a question or want to work with us you can send an email to"
+          )}
+          :
           <br />
           <EmailLink href={`mailto:${EMAIL}`}>
             info@ministryofprogramming.com
           </EmailLink>
-          , or fill the form below
+          , {t("or fill the form below")}
         </ParagraphLarge>
         <ContactForm onSubmit={handleSubmit} />
       </ContentContainer>
