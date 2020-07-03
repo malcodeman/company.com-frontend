@@ -159,8 +159,9 @@ function Positions(props) {
           <Display2>{t("Join our team")}</Display2>
           <Subdisplay>
             {t(
-              "At MOP we welcome Hackers, Designers, Product Strategists and all other creative people that want to build products that have significant impact! Please send your resume to"
+              "At MOP we welcome Hackers, Designers, Product Strategists and all other creative people that want to build products that have significant impact!"
             )}{" "}
+            {t("Please send your resume to")}{" "}
             <EmailLink href={`mailto:${EMAIL}`}>careers@mop.ba</EmailLink>
           </Subdisplay>
         </DisplayWrapper>
