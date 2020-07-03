@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
 import { nanoid } from "nanoid";
+import { useTranslation } from "react-i18next";
 
 import Container from "../../components/Container";
 import Layout from "../../components/Layout";
@@ -98,7 +99,7 @@ const PERKS = [
   },
   {
     id: nanoid(),
-    text: "Flex time: work from home or the café",
+    text: "Flex time! Work from home or the café",
     icon: <HomeIcon size={128} />,
   },
   {
@@ -133,6 +134,7 @@ const JOB_TYPES = {
 
 function Positions(props) {
   const { positions } = props;
+  const { t } = useTranslation();
 
   function parseJobType(type) {
     switch (type) {
@@ -154,15 +156,15 @@ function Positions(props) {
     <Layout>
       <Container>
         <DisplayWrapper>
-          <Display2>Join our team</Display2>
+          <Display2>{t("Join our team")}</Display2>
           <Subdisplay>
-            At MOP we welcome Hackers, Designers, Product Strategists and all
-            other creative people that want to build products that have
-            significant impact! Please send your resume to{" "}
+            {t(
+              "At MOP we welcome Hackers, Designers, Product Strategists and all other creative people that want to build products that have significant impact! Please send your resume to"
+            )}{" "}
             <EmailLink href={`mailto:${EMAIL}`}>careers@mop.ba</EmailLink>
           </Subdisplay>
         </DisplayWrapper>
-        <HighlightedText>We are searching for:</HighlightedText>
+        <HighlightedText>{t("We are searching for")}:</HighlightedText>
         <Grid>
           {positions.map((item) => {
             return (
@@ -179,13 +181,13 @@ function Positions(props) {
             );
           })}
         </Grid>
-        <HighlightedText>This is what we offer:</HighlightedText>
+        <HighlightedText>{t("This is what we offer")}:</HighlightedText>
         <PerksGrid>
           {PERKS.map((item) => {
             return (
               <Perk key={item.id}>
                 {item.icon}
-                <ParagraphLarge>{item.text}</ParagraphLarge>
+                <ParagraphLarge>{t(item.text)}</ParagraphLarge>
               </Perk>
             );
           })}
