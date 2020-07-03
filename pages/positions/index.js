@@ -140,15 +140,15 @@ function Positions(props) {
     switch (type) {
       default:
       case JOB_TYPES.full_time:
-        return "Full-time";
+        return t("Full-time");
       case JOB_TYPES.part_time:
-        return "Part-time";
+        return t("Part-time");
       case JOB_TYPES.internship:
-        return "Internship";
+        return t("Internship");
       case JOB_TYPES.volunteer:
-        return "Volunteer";
+        return t("Volunteer");
       case JOB_TYPES.contract:
-        return "Contract";
+        return t("Contract");
     }
   }
 
