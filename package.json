@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "cypress:open": "cypress open",
+    "cypress:all": "cypress run"
   },
   "dependencies": {
     "@malcodeman/react-popover": "^1.1.10",
@@ -21,5 +23,9 @@
     "react-typed": "^1.2.0",
     "styled-components": "^5.1.1",
     "yup": "^0.29.1"
+  },
+  "devDependencies": {
+    "cypress": "^4.9.0",
+    "faker": "^4.1.0"
   }
 }

@@ -58,6 +58,7 @@ function ContactForm(props) {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             size={InputSize.large}
+            data-cy="name"
           />
         </FormControl>
         <FormControl
@@ -72,6 +73,7 @@ function ContactForm(props) {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             size={InputSize.large}
+            data-cy="email"
           />
         </FormControl>
         <FormControl
@@ -86,6 +88,7 @@ function ContactForm(props) {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             size={InputSize.large}
+            data-cy="company"
           />
         </FormControl>
         <FormControl
@@ -99,10 +102,13 @@ function ContactForm(props) {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             size={TextareaSize.large}
+            data-cy="message"
           />
         </FormControl>
       </InputWrapper>
-      <StyledButton size={ButtonSize.large}>{t("Send")}</StyledButton>
+      <StyledButton size={ButtonSize.large} data-cy="submit">
+        {t("Send")}
+      </StyledButton>
     </form>
   );
 }
