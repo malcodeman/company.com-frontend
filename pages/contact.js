@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import Layout from "../components/Layout";
 import ContactForm from "./contact-form";
 import { ParagraphLarge, Display2 } from "../components/Typography";
+import { Notification, KIND } from "../components/notification";
 
 import { BREAKPOINTS, LAMBDA_API_URL } from "../lib/constants";
 
@@ -25,12 +26,19 @@ const EmailLink = styled.a`
   color: #ee2633;
 `;
 
+const FormWrapper = styled.div`
+  margin-bottom: 1rem;
+`;
+
 const EMAIL = "info@ministryofprogramming.com";
 
 function Contact() {
   const { t } = useTranslation();
+  const [showNotification, setShowNotification] = React.useState(false);
 
   async function handleSubmit(formik) {
+    formik.setSubmitting(true);
+
     const response = await fetch(`${LAMBDA_API_URL}/dev/contact`, {
       method: "POST",
       headers: {
@@ -41,6 +49,8 @@ function Contact() {
     const json = await response.json();
 
     if (json === "MESSAGE_SENT") {
+      setShowNotification(true);
+      formik.setSubmitting(false);
       formik.resetForm();
     }
   }
@@ -65,7 +75,14 @@ function Contact() {
           </EmailLink>
           , {t("or fill the form below")}
         </ParagraphLarge>
-        <ContactForm onSubmit={handleSubmit} />
+        <FormWrapper>
+          <ContactForm onSubmit={handleSubmit} />
+        </FormWrapper>
+        {showNotification && (
+          <Notification kind={KIND.positive} autoHideDuration={4000}>
+            {t("Message sent. Thank you!")}
+          </Notification>
+        )}
       </ContentContainer>
     </Layout>
   );

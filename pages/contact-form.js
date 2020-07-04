@@ -107,7 +107,7 @@ function ContactForm(props) {
         </FormControl>
       </InputWrapper>
       <StyledButton size={ButtonSize.large} data-cy="submit">
-        {t("Send")}
+        {formik.isSubmitting ? t("Sending") : t("Send")}
       </StyledButton>
     </form>
   );

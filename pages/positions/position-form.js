@@ -180,7 +180,9 @@ function PositionForm(props) {
           />
         </FormControl>
       </InputWrapper>
-      <StyledButton>{t("Submit Application")}</StyledButton>
+      <StyledButton>
+        {formik.isSubmitting ? t("Submitting") : t("Submit Application")}
+      </StyledButton>
     </form>
   );
 }

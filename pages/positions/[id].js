@@ -9,6 +9,7 @@ import {
   Display2,
 } from "../../components/Typography";
 import PositionForm from "./position-form";
+import { Notification, KIND } from "../../components/notification";
 
 import { getPosition, getPositions } from "../../lib/api";
 import { BREAKPOINTS, LAMBDA_API_URL } from "../../lib/constants";
@@ -46,11 +47,18 @@ const ListItem = styled.li`
   margin-bottom: 1rem;
 `;
 
+const FormWrapper = styled.div`
+  margin-bottom: 1rem;
+`;
+
 function Position(props) {
   const { position } = props;
   const { t } = useTranslation();
+  const [showNotification, setShowNotification] = React.useState(false);
 
   async function handleSubmit(formik) {
+    formik.setSubmitting(true);
+
     const values = {
       ...formik.values,
       age: String(formik.values.age),
@@ -65,6 +73,8 @@ function Position(props) {
     const json = await response.json();
 
     if (json === "MESSAGE_SENT") {
+      setShowNotification(true);
+      formik.setSubmitting(false);
       formik.resetForm();
     }
   }
@@ -114,7 +124,14 @@ function Position(props) {
             </List>
           </ListWrapper>
         )}
-        <PositionForm position={position.title} onSubmit={handleSubmit} />
+        <FormWrapper>
+          <PositionForm position={position.title} onSubmit={handleSubmit} />
+        </FormWrapper>
+        {showNotification && (
+          <Notification kind={KIND.positive} autoHideDuration={4000}>
+            {t("Message sent. Thank you!")}
+          </Notification>
+        )}
       </ContentContainer>
     </Layout>
   );
