@@ -1,5 +1,5 @@
 function Home(props) {
-  const { size } = props;
+  const { size, fill } = props;
 
   return (
     <svg
@@ -57,7 +57,11 @@ function Home(props) {
                 filter="url(#filter-2)"
                 xlinkHref="#path-1"
               ></use>
-              <use fill="#FFFFFF" fillRule="evenodd" xlinkHref="#path-1"></use>
+              <use
+                fill={fill || "#FFFFFF"}
+                fillRule="evenodd"
+                xlinkHref="#path-1"
+              ></use>
             </g>
             <g
               id="house"

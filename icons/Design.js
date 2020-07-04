@@ -1,5 +1,5 @@
 function Design(props) {
-  const { size } = props;
+  const { size, fill } = props;
 
   return (
     <svg
@@ -60,7 +60,7 @@ function Design(props) {
                     xlinkHref="#path-1"
                   ></use>
                   <use
-                    fill="#FFFFFF"
+                    fill={fill || "#FFFFFF"}
                     fillRule="evenodd"
                     xlinkHref="#path-1"
                   ></use>

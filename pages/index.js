@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import Typed from "react-typed";
 import { ArrowDownCircle as ArrowDownCircleIcon } from "react-feather";
 import { nanoid } from "nanoid";
@@ -250,6 +250,7 @@ const STATS = [
 
 function Home() {
   const { t } = useTranslation();
+  const theme = useTheme();
 
   return (
     <Layout>
@@ -282,7 +283,9 @@ function Home() {
           {PROCESS.map((item) => {
             return (
               <ProcessGridItem key={item.id}>
-                {item.icon}
+                {React.cloneElement(item.icon, {
+                  fill: theme.colors.backgroundPrimary,
+                })}
                 <ParagraphLarge>{t(item.title)}</ParagraphLarge>
                 <ProcessDescription>{t(item.description)}</ProcessDescription>
                 {item.stepIcon}

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import { nanoid } from "nanoid";
 import { useTranslation } from "react-i18next";
 
@@ -135,6 +135,7 @@ const JOB_TYPES = {
 function Positions(props) {
   const { positions } = props;
   const { t } = useTranslation();
+  const theme = useTheme();
 
   function parseJobType(type) {
     switch (type) {
@@ -187,7 +188,9 @@ function Positions(props) {
           {PERKS.map((item) => {
             return (
               <Perk key={item.id}>
-                {item.icon}
+                {React.cloneElement(item.icon, {
+                  fill: theme.colors.backgroundPrimary,
+                })}
                 <ParagraphLarge>{t(item.text)}</ParagraphLarge>
               </Perk>
             );
