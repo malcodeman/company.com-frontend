@@ -4,6 +4,9 @@ import styled from "styled-components";
 import Header from "./Header";
 import Footer from "./Footer";
 import MobileNavigation from "./MobileNavigation";
+import CookieConsent from "./CookieConsent";
+
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const Grid = styled.div`
   display: grid;
@@ -16,6 +19,10 @@ const Grid = styled.div`
 function Layout(props) {
   const [mobileNav, setMobileNav] = React.useState(false);
   const { children } = props;
+  const [cookieConsent, setCookieConsent] = useLocalStorage(
+    "cookieConsent",
+    false
+  );
 
   return (
     <>
@@ -25,6 +32,7 @@ function Layout(props) {
         <Footer />
       </Grid>
       {mobileNav && <MobileNavigation setMobileNav={setMobileNav} />}
+      {!cookieConsent && <CookieConsent setCookieConsent={setCookieConsent} />}
     </>
   );
 }
