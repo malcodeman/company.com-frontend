@@ -16,9 +16,22 @@ import { Button, KIND } from "../components/button";
 import { getProducts } from "../lib/api";
 import { NEXT_PUBLIC_STRAPI_API_URL } from "../lib/constants";
 
-const DisplayWrapper = styled.div`
-  text-align: center;
+const Cover = styled.div`
   margin-bottom: 2rem;
+  background-image: url("products-cover.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 30rem;
+  position: relative;
+`;
+
+const DisplayTextWrapper = styled.div`
+  padding: 1rem;
+  position: absolute;
+  left: 2rem;
+  bottom: 0;
+  max-width: 60%;
+  background-color: ${(props) => props.theme.colors.backgroundPrimary};
 `;
 
 const Subdisplay = styled(ParagraphLarge)`
@@ -76,14 +89,16 @@ function Products(props) {
   return (
     <Layout>
       <Container>
-        <DisplayWrapper>
-          <Display2>{t("Products we are building")}</Display2>
-          <Subdisplay>
-            {t(
-              "We are a group of multi-skilled individuals who are entrepreneurial by nature and live to make digital products and services that people love to use."
-            )}
-          </Subdisplay>
-        </DisplayWrapper>
+        <Cover>
+          <DisplayTextWrapper>
+            <Display2>{t("Products we are building")}</Display2>
+            <Subdisplay>
+              {t(
+                "We are a group of multi-skilled individuals who are entrepreneurial by nature and live to make digital products and services that people love to use."
+              )}
+            </Subdisplay>
+          </DisplayTextWrapper>
+        </Cover>
         <Grid>
           {products.map((item) => {
             return (
