@@ -61,6 +61,7 @@ const MenuList = styled.ul`
   margin: 0;
   padding-left: 0;
   padding: 0.5rem 1rem;
+  z-index: 1;
   background-color: ${(props) => props.theme.colors.backgroundSecondary};
 `;
 
