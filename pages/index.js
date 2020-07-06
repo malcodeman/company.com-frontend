@@ -249,8 +249,15 @@ const STATS = [
 ];
 
 function Home() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const theme = useTheme();
+  const [typedElement, setTypedElement] = React.useState(null);
+
+  React.useEffect(() => {
+    if (typedElement) {
+      typedElement.reset();
+    }
+  }, [typedElement, i18n.language]);
 
   return (
     <Layout>
@@ -261,6 +268,7 @@ function Home() {
               strings={TYPED_STRINGS.map((item) => t(item))}
               cursorChar="|"
               typeSpeed={35}
+              typedRef={(typed) => setTypedElement(typed)}
             ></Typed>
           </Display2>
           <Subdisplay>
