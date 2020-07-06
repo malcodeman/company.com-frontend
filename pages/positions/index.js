@@ -170,7 +170,11 @@ function Positions(props) {
         <Grid>
           {positions.map((item) => {
             return (
-              <Link key={item.id} href={`/positions/${item.id}`}>
+              <Link
+                key={item.id}
+                href={`/positions/[id]`}
+                as={`/positions/${item.id}`}
+              >
                 <a>
                   <GridItem>
                     <Title>{item.title}</Title>
