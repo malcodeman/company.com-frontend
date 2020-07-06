@@ -10,6 +10,7 @@ import { useTranslation } from "react-i18next";
 
 import Container from "./Container";
 import { ParagraphMedium, ParagraphSmall } from "./Typography";
+import NavLink from "./Navlink";
 
 import { BREAKPOINTS, HEADER_NAVIGATION, LANGUAGES } from "../lib/constants";
 
@@ -19,8 +20,14 @@ const StyledContainer = styled(Container)`
   align-items: center;
 `;
 
-const LinkText = styled(ParagraphMedium)`
+const StyledLink = styled.a`
+  cursor: pointer;
   padding: 1rem;
+  color: ${(props) => props.theme.colors.contentPrimary};
+  &.active {
+    color: ${(props) => props.theme.colors.accent};
+  }
+  ${(props) => props.theme.typography.ParagraphMedium};
 `;
 
 const Navigation = styled.nav`
@@ -60,6 +67,10 @@ const MenuList = styled.ul`
 const MenuListItem = styled.li`
   padding: 0.5rem;
   cursor: pointer;
+`;
+
+const LanguageLabel = styled(ParagraphMedium)`
+  padding: 1rem;
 `;
 
 function Header(props) {
@@ -103,21 +114,17 @@ function Header(props) {
     <header>
       <StyledContainer>
         <Link href="/">
-          <a>
-            <LinkText>
-              ministry of <br /> programming
-            </LinkText>
-          </a>
+          <StyledLink>
+            ministry of <br /> programming
+          </StyledLink>
         </Link>
         <StyledMenuIcon size={20} onClick={() => setMobileNav(!mobileNav)} />
         <Navigation>
           {HEADER_NAVIGATION.map((item) => {
             return (
-              <Link href={item.link} key={item.id}>
-                <a>
-                  <LinkText>{t(item.label)}</LinkText>
-                </a>
-              </Link>
+              <NavLink href={item.link} key={item.id}>
+                <StyledLink>{t(item.label)}</StyledLink>
+              </NavLink>
             );
           })}
           <StatefulPopover
@@ -140,7 +147,9 @@ function Header(props) {
           >
             <PopoverButton>
               <GlobeIcon size={20} />
-              <LinkText>{renderLanguageLabel(i18n.language)}</LinkText>
+              <LanguageLabel>
+                {renderLanguageLabel(i18n.language)}
+              </LanguageLabel>
               <ChevronDownIcon size={20} />
             </PopoverButton>
           </StatefulPopover>

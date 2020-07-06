@@ -33,11 +33,11 @@ const Navigation = styled.nav`
 
 const StyledLink = styled.a`
   padding: 1rem;
-  font-size: 1rem;
   color: #fff;
   cursor: pointer;
+  ${(props) => props.theme.typography.ParagraphMedium};
   &:hover {
-    color: #ee2633;
+    color: ${(props) => props.theme.colors.accent};
   }
 `;
 
