@@ -134,6 +134,9 @@ function Header(props) {
             content={() => (
               <MenuList>
                 {Object.values(LANGUAGES).map((item) => {
+                  if (item.code === i18n.language) {
+                    return null;
+                  }
                   return (
                     <MenuListItem
                       key={item.code}
