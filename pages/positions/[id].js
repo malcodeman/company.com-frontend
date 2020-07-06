@@ -13,6 +13,7 @@ import { Notification, KIND } from "../../components/notification";
 
 import { getPosition, getPositions } from "../../lib/api";
 import { BREAKPOINTS, LAMBDA_API_URL } from "../../lib/constants";
+import translate from "../../utils/translate";
 
 const DisplayWrapper = styled.div`
   text-align: center;
@@ -53,8 +54,9 @@ const FormWrapper = styled.div`
 
 function Position(props) {
   const { position } = props;
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [showNotification, setShowNotification] = React.useState(false);
+  const description = translate("description", position, i18n.language);
 
   async function handleSubmit(formik) {
     formik.setSubmitting(true);
@@ -94,7 +96,7 @@ function Position(props) {
           <Display2>{position.title}</Display2>
         </DisplayWrapper>
         {position.description && (
-          <Description>{parseDescription(position.description)}</Description>
+          <Description>{parseDescription(description)}</Description>
         )}
         {position.responsibilities && (
           <ListWrapper>

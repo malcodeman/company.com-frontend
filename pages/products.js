@@ -12,6 +12,7 @@ import {
   ParagraphLarge,
 } from "../components/Typography";
 import { Button, KIND } from "../components/button";
+import Trans from "../components/Trans";
 
 import { getProducts } from "../lib/api";
 import { NEXT_PUBLIC_STRAPI_API_URL } from "../lib/constants";
@@ -105,7 +106,9 @@ function Products(props) {
               <GridItem key={item.id} id={item.title}>
                 <Image src={`${NEXT_PUBLIC_STRAPI_API_URL}${item.image.url}`} />
                 <Title>{item.title}</Title>
-                <Description>{item.description}</Description>
+                <Description>
+                  <Trans field="description" content={item} />
+                </Description>
                 <Footer>
                   {item.app_store && (
                     <a href={item.app_store} target="_blank" rel="noopener">

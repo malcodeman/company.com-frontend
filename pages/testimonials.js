@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 import Container from "../components/Container";
 import Layout from "../components/Layout";
@@ -7,7 +8,7 @@ import {
   ParagraphSmall,
   Display2,
 } from "../components/Typography";
-import { useTranslation } from "react-i18next";
+import Trans from "../components/Trans";
 
 import { getTestimonials } from "../lib/api";
 import { NEXT_PUBLIC_STRAPI_API_URL } from "../lib/constants";
@@ -82,7 +83,7 @@ function Testimonials(props) {
                 </Header>
                 <ParagraphMedium>
                   <Quote>“</Quote>
-                  {item.text}
+                  <Trans field="text" content={item} />
                   <Quote>“</Quote>
                 </ParagraphMedium>
                 <Footer>
