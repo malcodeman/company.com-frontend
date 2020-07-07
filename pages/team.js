@@ -153,38 +153,40 @@ function Team(props) {
           </Subdisplay>
         </DisplayWrapper>
         <Grid>
-          {shuffle(employees).map((item) => {
-            return (
-              <GridItem key={item.id}>
-                <Profile
-                  src={`${NEXT_PUBLIC_STRAPI_API_URL}${item.profile.url}`}
-                />
-                <ProfileAlter
-                  src={`${NEXT_PUBLIC_STRAPI_API_URL}${item.profile_alter.url}`}
-                />
-                <Footer>
-                  <NameWrapper>
-                    <ParagraphMedium>{item.name}</ParagraphMedium>
-                    <ParagraphSmall>{item.description}</ParagraphSmall>
-                  </NameWrapper>
-                  <Links>
-                    {item.links.map((link) => {
-                      return (
-                        <Link
-                          key={link.url}
-                          href={link.url}
-                          target="_blank"
-                          rel="noopener"
-                        >
-                          {handleLinkIcon(link.url)}
-                        </Link>
-                      );
-                    })}
-                  </Links>
-                </Footer>
-              </GridItem>
-            );
-          })}
+          {employees &&
+            shuffle(employees).map((item) => {
+              return (
+                <GridItem key={item.id}>
+                  <Profile
+                    src={`${NEXT_PUBLIC_STRAPI_API_URL}${item.profile.url}`}
+                  />
+                  <ProfileAlter
+                    src={`${NEXT_PUBLIC_STRAPI_API_URL}${item.profile_alter.url}`}
+                  />
+                  <Footer>
+                    <NameWrapper>
+                      <ParagraphMedium>{item.name}</ParagraphMedium>
+                      <ParagraphSmall>{item.description}</ParagraphSmall>
+                    </NameWrapper>
+                    <Links>
+                      {item.links &&
+                        item.links.map((link) => {
+                          return (
+                            <Link
+                              key={link.url}
+                              href={link.url}
+                              target="_blank"
+                              rel="noopener"
+                            >
+                              {handleLinkIcon(link.url)}
+                            </Link>
+                          );
+                        })}
+                    </Links>
+                  </Footer>
+                </GridItem>
+              );
+            })}
         </Grid>
       </Container>
     </Layout>

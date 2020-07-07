@@ -102,40 +102,43 @@ function Products(props) {
           </DisplayTextWrapper>
         </Cover>
         <Grid>
-          {products.map((item) => {
-            return (
-              <GridItem key={item.id} id={item.title}>
-                <Image src={`${NEXT_PUBLIC_STRAPI_API_URL}${item.image.url}`} />
-                <Title>{item.title}</Title>
-                <Description>
-                  <Trans field="description" content={item} />
-                </Description>
-                <Footer>
-                  {item.app_store && (
-                    <a href={item.app_store} target="_blank" rel="noopener">
-                      <StyledButton kind={KIND.secondary}>
-                        Appstore
-                      </StyledButton>
-                    </a>
-                  )}
-                  {item.google_play && (
-                    <a href={item.google_play} target="_blank" rel="noopener">
-                      <StyledButton kind={KIND.secondary}>
-                        Google Play
-                      </StyledButton>
-                    </a>
-                  )}
-                  {item.website && (
-                    <a href={item.website} target="_blank" rel="noopener">
-                      <StyledButton kind={KIND.secondary}>
-                        Visit Live
-                      </StyledButton>
-                    </a>
-                  )}
-                </Footer>
-              </GridItem>
-            );
-          })}
+          {products &&
+            products.map((item) => {
+              return (
+                <GridItem key={item.id} id={item.title}>
+                  <Image
+                    src={`${NEXT_PUBLIC_STRAPI_API_URL}${item.image.url}`}
+                  />
+                  <Title>{item.title}</Title>
+                  <Description>
+                    <Trans field="description" content={item} />
+                  </Description>
+                  <Footer>
+                    {item.app_store && (
+                      <a href={item.app_store} target="_blank" rel="noopener">
+                        <StyledButton kind={KIND.secondary}>
+                          Appstore
+                        </StyledButton>
+                      </a>
+                    )}
+                    {item.google_play && (
+                      <a href={item.google_play} target="_blank" rel="noopener">
+                        <StyledButton kind={KIND.secondary}>
+                          Google Play
+                        </StyledButton>
+                      </a>
+                    )}
+                    {item.website && (
+                      <a href={item.website} target="_blank" rel="noopener">
+                        <StyledButton kind={KIND.secondary}>
+                          Visit Live
+                        </StyledButton>
+                      </a>
+                    )}
+                  </Footer>
+                </GridItem>
+              );
+            })}
         </Grid>
         <WorkWithUs question={t("Ready to get started?")} />
       </Container>

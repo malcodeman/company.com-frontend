@@ -71,33 +71,34 @@ function Testimonials(props) {
           <Display2>{t("What our partners say")}</Display2>
         </DisplayWrapper>
         <Grid>
-          {testimonials.map((item) => {
-            return (
-              <GridItem key={item.id}>
-                <Header>
-                  <a href={item.url} target="_blank" rel="noopener">
-                    <Image
-                      src={`${NEXT_PUBLIC_STRAPI_API_URL}${item.image.url}`}
+          {testimonials &&
+            testimonials.map((item) => {
+              return (
+                <GridItem key={item.id}>
+                  <Header>
+                    <a href={item.url} target="_blank" rel="noopener">
+                      <Image
+                        src={`${NEXT_PUBLIC_STRAPI_API_URL}${item.image.url}`}
+                      />
+                    </a>
+                  </Header>
+                  <ParagraphMedium>
+                    <Quote>“</Quote>
+                    <Trans field="text" content={item} />
+                    <Quote>“</Quote>
+                  </ParagraphMedium>
+                  <Footer>
+                    <AuthorImage
+                      src={`${NEXT_PUBLIC_STRAPI_API_URL}${item.author_image.url}`}
                     />
-                  </a>
-                </Header>
-                <ParagraphMedium>
-                  <Quote>“</Quote>
-                  <Trans field="text" content={item} />
-                  <Quote>“</Quote>
-                </ParagraphMedium>
-                <Footer>
-                  <AuthorImage
-                    src={`${NEXT_PUBLIC_STRAPI_API_URL}${item.author_image.url}`}
-                  />
-                  <div>
-                    <ParagraphSmall>{item.author_name}</ParagraphSmall>
-                    <ParagraphSmall>{item.author_description}</ParagraphSmall>
-                  </div>
-                </Footer>
-              </GridItem>
-            );
-          })}
+                    <div>
+                      <ParagraphSmall>{item.author_name}</ParagraphSmall>
+                      <ParagraphSmall>{item.author_description}</ParagraphSmall>
+                    </div>
+                  </Footer>
+                </GridItem>
+              );
+            })}
         </Grid>
       </Container>
     </Layout>

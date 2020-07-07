@@ -92,9 +92,7 @@ function Careers(props) {
         </Section>
         <StyledParagraphLarge>{t("Sweet moments")}</StyledParagraphLarge>
         <ParagraphLarge>{t("Straight from Instagram")}</ParagraphLarge>
-        <Section>
-          <ImageGrid images={JSON.parse(images)} />
-        </Section>
+        <Section>{images && <ImageGrid images={JSON.parse(images)} />}</Section>
         <WorkWithUs question={t("You have a project?")} />
       </Container>
     </Layout>

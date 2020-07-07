@@ -141,7 +141,7 @@ function Position(props) {
 
 export async function getStaticPaths() {
   const positions = (await getPositions()) || [];
-  const paths = positions.map((item) => `/positions/${item.id}`);
+  const paths = positions && positions.map((item) => `/positions/${item.id}`);
 
   return {
     paths,
