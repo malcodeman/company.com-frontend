@@ -3,9 +3,9 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useTranslation } from "react-i18next";
 
-import FormControl from "../../components/FormControl";
-import { Input, SIZE as inputSize } from "../../components/input";
-import { Button } from "../../components/button";
+import FormControl from "./FormControl";
+import { Input, SIZE as inputSize } from "./input";
+import { Button } from "./button";
 
 const InputWrapper = styled.div`
   margin-bottom: 1rem;

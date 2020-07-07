@@ -8,7 +8,7 @@ import {
   HeadingLarge,
   Display2,
 } from "../../components/Typography";
-import PositionForm from "./position-form";
+import PositionForm from "../../components/PositionForm";
 import { Notification, KIND } from "../../components/notification";
 
 import { getPosition, getPositions } from "../../lib/api";

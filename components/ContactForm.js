@@ -3,10 +3,10 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useTranslation } from "react-i18next";
 
-import FormControl from "../components/FormControl";
-import { Input, SIZE as InputSize } from "../components/input";
-import { Button, SIZE as ButtonSize } from "../components/button";
-import { Textarea, SIZE as TextareaSize } from "../components/textarea";
+import FormControl from "./FormControl";
+import { Input, SIZE as InputSize } from "./input";
+import { Button, SIZE as ButtonSize } from "./button";
+import { Textarea, SIZE as TextareaSize } from "./textarea";
 
 const InputWrapper = styled.div`
   margin-bottom: 1rem;

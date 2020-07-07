@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 
 import Layout from "../components/Layout";
-import ContactForm from "./contact-form";
+import ContactForm from "../components/ContactForm";
 import { ParagraphLarge, Display2 } from "../components/Typography";
 import { Notification, KIND } from "../components/notification";
 
