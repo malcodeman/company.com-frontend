@@ -21,6 +21,7 @@ import {
 
 import { getEmployees } from "../lib/api";
 import { NEXT_PUBLIC_STRAPI_API_URL, EMPLOYE_LINKS } from "../lib/constants";
+import shuffle from "../utils/shuffle";
 
 const DisplayWrapper = styled.div`
   text-align: center;
@@ -152,7 +153,7 @@ function Team(props) {
           </Subdisplay>
         </DisplayWrapper>
         <Grid>
-          {employees.map((item) => {
+          {shuffle(employees).map((item) => {
             return (
               <GridItem key={item.id}>
                 <Profile
