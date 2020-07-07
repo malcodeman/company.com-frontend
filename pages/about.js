@@ -110,8 +110,12 @@ function About() {
         </Container>
       </Section>
       <TeamImages>
-        <TeamImage src="team-1.jpg" />
-        <TeamImage src="team-2.jpg" />
+        <div>
+          <TeamImage src="team-1.jpg" />
+        </div>
+        <div>
+          <TeamImage src="team-2.jpg" />
+        </div>
       </TeamImages>
     </Layout>
   );
