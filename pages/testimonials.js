@@ -11,7 +11,6 @@ import {
 import Trans from "../components/Trans";
 
 import { getTestimonials } from "../lib/api";
-import { NEXT_PUBLIC_STRAPI_API_URL } from "../lib/constants";
 
 const DisplayWrapper = styled.div`
   text-align: center;
@@ -77,9 +76,7 @@ function Testimonials(props) {
                 <GridItem key={item.id}>
                   <Header>
                     <a href={item.url} target="_blank" rel="noopener">
-                      <Image
-                        src={`${NEXT_PUBLIC_STRAPI_API_URL}${item.image.url}`}
-                      />
+                      <Image src={item.image.url} />
                     </a>
                   </Header>
                   <ParagraphMedium>
@@ -88,9 +85,7 @@ function Testimonials(props) {
                     <Quote>“</Quote>
                   </ParagraphMedium>
                   <Footer>
-                    <AuthorImage
-                      src={`${NEXT_PUBLIC_STRAPI_API_URL}${item.author_image.url}`}
-                    />
+                    <AuthorImage src={item.author_image.url} />
                     <div>
                       <ParagraphSmall>{item.author_name}</ParagraphSmall>
                       <ParagraphSmall>{item.author_description}</ParagraphSmall>

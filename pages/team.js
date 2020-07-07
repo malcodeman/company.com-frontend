@@ -20,7 +20,7 @@ import {
 } from "../components/Typography";
 
 import { getEmployees } from "../lib/api";
-import { NEXT_PUBLIC_STRAPI_API_URL, EMPLOYE_LINKS } from "../lib/constants";
+import { EMPLOYE_LINKS } from "../lib/constants";
 import shuffle from "../utils/shuffle";
 
 const DisplayWrapper = styled.div`
@@ -157,12 +157,8 @@ function Team(props) {
             shuffle(employees).map((item) => {
               return (
                 <GridItem key={item.id}>
-                  <Profile
-                    src={`${NEXT_PUBLIC_STRAPI_API_URL}${item.profile.url}`}
-                  />
-                  <ProfileAlter
-                    src={`${NEXT_PUBLIC_STRAPI_API_URL}${item.profile_alter.url}`}
-                  />
+                  <Profile src={item.profile.url} />
+                  <ProfileAlter src={item.profile_alter.url} />
                   <Footer>
                     <NameWrapper>
                       <ParagraphMedium>{item.name}</ParagraphMedium>

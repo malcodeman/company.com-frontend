@@ -15,7 +15,6 @@ import { Button, KIND } from "../components/button";
 import Trans from "../components/Trans";
 
 import { getProducts } from "../lib/api";
-import { NEXT_PUBLIC_STRAPI_API_URL } from "../lib/constants";
 
 const Cover = styled.div`
   margin-bottom: 2rem;
@@ -106,9 +105,7 @@ function Products(props) {
             products.map((item) => {
               return (
                 <GridItem key={item.id} id={item.title}>
-                  <Image
-                    src={`${NEXT_PUBLIC_STRAPI_API_URL}${item.image.url}`}
-                  />
+                  <Image src={item.image.url} />
                   <Title>{item.title}</Title>
                   <Description>
                     <Trans field="description" content={item} />
