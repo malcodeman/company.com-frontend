@@ -8,7 +8,8 @@
     "start": "next start",
     "cypress:open": "cypress open",
     "cypress:all": "cypress run",
-    "export": "next build && next export"
+    "export": "next build && next export",
+    "serve": "serve out"
   },
   "dependencies": {
     "@malcodeman/react-popover": "^1.1.10",
