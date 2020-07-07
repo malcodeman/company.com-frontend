@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 
 import Container from "./Container";
 import { ParagraphMedium, ParagraphSmall } from "./Typography";
-import NavLink from "./Navlink";
+import NavLink from "./NavLink";
 
 import { BREAKPOINTS, HEADER_NAVIGATION, LANGUAGES } from "../lib/constants";
 
