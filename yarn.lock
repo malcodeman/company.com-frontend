@@ -4146,6 +4146,11 @@ make-dir@^3.0.2:
   dependencies:
     semver "^6.0.0"
 
+malhooks@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/malhooks/-/malhooks-1.1.1.tgz#a8ed6487697420e293b11a76aa6f7b5c8333dfeb"
+  integrity sha512-vga4XSAyKrIwCMZ2vWoCkVgNdR77UjNtqftYFJ/haW4+EcQM9tyWeVm2GQYF+Rk7sBujP2LYgXRo+1lp0FzQ0g==
+
 map-cache@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/map-cache/-/map-cache-0.2.2.tgz#c32abd0bd6525d9b051645bb4f26ac5dc98a0dbf"

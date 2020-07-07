@@ -1,12 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import { useLocalStorage } from "malhooks";
 
 import Header from "./Header";
 import Footer from "./Footer";
 import MobileNavigation from "./MobileNavigation";
 import CookieConsent from "./CookieConsent";
-
-import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const Grid = styled.div`
   display: grid;
